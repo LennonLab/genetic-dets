@@ -1,0 +1,117 @@
+position,,mutation,01N2S3.g,01N3S3.g,01N5S4.g,01P3S1.g,01P4S5.g,01P5S1.g,03P3S5.g,05P3S1.g,12P3S4.g,16P3S2.g,19P3S4.g,21P3S4.g,03N2S5.g,03N3S2.g,03N3S4.g,03N5S2.g,05N2S5.g,05N3S3.g,16N5S4.g,19N3S4.g,21N2S3.g,21N3S2.g,03P2S4.g,03P5S5.g,05P2S1.g,05P2S2.g,05P4S4.g,05P5S4.g,12P2S5.g,12P4S2.g,16P5S2.g,19P5S2.g,21P2S4.g,21P4S2.g,21P5S1.g,,IN CONTROL,IN TREATMENT,IN NL?,"IF YES, HOW MANY?",IN PL?,"IF YES, HOW MANY?",annotation,gene,description
+,,,N,N,N,P,P,P,P,P,P,P,P,P,N,N,N,N,N,N,N,N,N,N,P,P,P,P,P,P,P,P,P,P,P,P,P,,,,,10,,13,,,
+"12,864",ns,C?G,,,,,,,,,,,100%,?,,,,,,,,,,,,,,,,,,,,,,,,,TRUE,FALSE,,0,,1,A100G (GCT?GGT) ,ftsY ?,"Signal recognition particle GTPase, FtsY"
+"104,881",,?42 bp,,,,,,,,,100%,,,?,,,,,,,,,,,?,,,,,,,,,,,,,,TRUE,FALSE,,0,,1,coding (458?499/888 nt),rfbD ?,putative dTDP?4?dehydrorhamnose reductase
+"152,770",,?1 bp,,,100%,,,,,,,,,?,,,,,,,,,,,,,,,,,,,,,,,,,TRUE,FALSE,,1,,0,coding (626/744 nt),SynWH7803_0136 ?,"ABC?type polysaccharide/polyol phosphate transport system, ATPase component"
+"154,970",,?1 bp,,100%,,,,,,,,,,?,,,,,,,,,,,,,,,,,,,,,,,,,TRUE,FALSE,,1,,0,coding (1411/1596 nt),SynWH7803_0139 ?,glycosyl transferase family protein
+"209,236",ns,G?A,,,100%,,,,,,,,,?,,,,,,,,,,,,,,,,,,,,,,,,,TRUE,FALSE,,1,,0,P171L (CCC?CTC) ,SynWH7803_0191 ?,hypothetical protein
+"239,024",ns,G?T,,,,,,,,100%,,,,?,,,,,,,,,,,,,,,,,,,,,,,,,TRUE,FALSE,,0,,1,R166L (CGC?CTC) ,SynWH7803_0218 ?,glycosyl transferase family protein
+"240,165",ns,C?A,,,,,,,,,100%,,,?,,,,,,,,,,,,,,,,,,,,,,,,,TRUE,FALSE,,0,,1,C198F (TGC?TTC) ,SynWH7803_0219 ?,hypothetical protein
+"340,700",ns,C?A,,,,,,,,,,,,100%,,,,,,,,,,,,,,,,,,,,,,,,,TRUE,FALSE,,0,,1,R4S (CGC?AGC) ,psbH ?,photosystem II reaction center protein H
+"451,666",ns,A?G,,100%,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,TRUE,FALSE,,1,,0,I201V (ATC?GTC) ,SynWH7803_0438 ?,HAD family phosphatase
+"490,652",ns,G?T,,,,,,,,,,,,100%,,,,,,,,,,,,,,,,,,,,,,,,,TRUE,FALSE,,0,,1,P190T (CCG?ACG) ,pebB ?,phycoerythrobilin:ferredoxin oxidoreductase
+"492,222",ns,C?T,,,100%,,,,,,,,,?,,,,,,,,,,,,,,,,,,,,,,,,,TRUE,FALSE,,1,,0,V109M (GTG?ATG) ,SynWH7803_0483 ?,hypothetical protein
+"758,238",ns,G?C,,100%,,,,,,,,,,?,,,,,,,,,,,,,,,,,,,,,,,,,TRUE,FALSE,,1,,0,L34V (CTC?GTC) ,prlC ?,oligopeptidase A
+"917,611",,C?T,,,,100%,,,,,,,,?,,,,,,,,,,,,,,,,,,,,,,,,,TRUE,FALSE,,0,,1,intergenic (?12/?91),SynWH7803_0995 ? / ? SynWH7803_0996,hypothetical protein/hypothetical protein
+"951,302",ns,G?T,,,,,,,,100%,,,,?,,,,,,,,,,,,,,,,,,,,,,,,,TRUE,FALSE,,0,,1,D217Y (GAC?TAC) ,comB ?,2?phosphosulfolactate phosphatase
+"1,019,327",,?1 bp,,,,100%,,,,,,,,?,,,,,,,,,,,,,,,,,,,,,,,,,TRUE,FALSE,,0,,1,coding (777/933 nt),SynWH7803_1114 ?,kinase
+"1,061,867",ns,C?T,,,,100%,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,TRUE,FALSE,,0,,1,G200E (GGG?GAG) ,SynWH7803_1161 ?,hypothetical protein
+"1,407,417",ns,C?G,,,,,,,,100%,,,,,,,,,,,,,,,,,,,,,,,,,,,,,TRUE,FALSE,,0,,1,A6P (GCC?CCC) ,uppS ?,undecaprenyl pyrophosphate synthase
+"1,500,963",ns,C?T,,,,,,,,100%,,,,?,,,,,,,,,,,,,,,,,,,,,,,,,TRUE,FALSE,,0,,1,A84T (GCG?ACG) ,pntAA ?,NAD/NADP transhydrogenase subunit alpha part 1
+"1,565,247",s,C?A,,,,,100%,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,TRUE,FALSE,,0,,1,L490L (CTG?CTT) ,SynWH7803_1711 ?,protein kinase
+"1,760,010",s,G?C,,,100%,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,TRUE,FALSE,,1,,0,L23L (CTG?CTC) ,SynWH7803_1923 ?,hypothetical protein
+"1,891,124",ns,C?T,,,,,,,,,100%,,,?,,,,,,,,,,,,,,,,,,,,,,,,,TRUE,FALSE,,0,,1,D20N (GAC?AAC) ,tatD ?,Mg?dependent DNase
+"1,922,186",ns,G?T,,,,,,,,,,,100%,?,,,,,,,,,,,,,,,,,,,,,,,,,TRUE,FALSE,,0,,1,D71Y (GAC?TAC) ,SynWH7803_2093 ?,hypothetical protein
+"1,945,019",ns,G?A,,,,,,100%,,,,,,?,,,,,,,,,,,,,,,,,,,,,,,,,TRUE,FALSE,,0,,1,L52F (CTC?TTC) ,SynWH7803_2122 ?,hypothetical protein
+"2,006,492",s,G?A,,,,,,,100%,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,TRUE,FALSE,,0,28,1,E529E (GAG?GAA) ,uup ?,ABC transporter ATPase
+"2,033,672",ns,C?A,,,,,,,100%,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,TRUE,FALSE,,0,,1,P106H (CCC?CAC) ,SynWH7803_2208 ?,Fe?S oxidoreductase
+"2,111,877",ns,C?A,,,,,,,,,100%,,,?,,,,,,,,,,,,,,,,,,,,,,,,,TRUE,FALSE,,0,,1,E126D (GAG?GAT) ,SynWH7803_2290 ?,NADH dehydrogenase subunit I
+"2,127,789",,+G,,100%,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,TRUE,FALSE,,1,,0,coding (534/573 nt),SynWH7803_2307 ?,hypothetical protein
+"2,167,252",ns,C?A,,,,,,100%,,,,,,?,,,,,,,,,,,,,,,,,,,,,,,,,TRUE,FALSE,,0,,1,N172K (AAC?AAA) ,SynWH7803_2345 ?,carbohydrate?binding protein
+"103,283",ns,C?A,,,,,,,,,100%,,,,,,,,,100%,,,100%,100%,,100%,,,,,,,,,,,,,TRUE,TRUE,TRUE,3,TRUE,1,F135L (TTC?TTA) ,SynWH7803_0102 ?,glucose?1?phosphate thymidylyltransferase
+"104,894",s,C?T,,,,,,,,,?,100%,,?,,,,,,,,,,,?,,,,,,,?,,,100%,100%,,,TRUE,TRUE,FALSE,0,TRUE,2,G157G (GGC?GGT) ,rfbD ?,putative dTDP?4?dehydrorhamnose reductase
+"917,144",ns,G?T,100%,,,100%,,,,,,,,,,,,100%,,,,,,,,,100%,,,,,,,,,,,,TRUE,TRUE,TRUE,1,TRUE,1,H41N (CAC?AAC) ,hupE ?,hydrogenase accessory membrane protein
+"1,062,902",ns,A?C,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,,TRUE,TRUE,TRUE,10,TRUE,13,F26C (TTT?TGT) ,fur ?,ferric uptake regulator family protein
+"2,176,220",s,G?A,,100%,,,,,,,,,,?,,,,,,,,100%,100%,,100%,,,,,,,,,,100%,,100%,,TRUE,TRUE,TRUE,2,TRUE,3,N633N (AAC?AAT) ,SynWH7803_2356 ?,hypothetical protein
+"2,176,310",s,G?A,,,,,100%,100%,,100%,100%,,,?,,100%,,,,100%,100%,,,100%,,100%,,,,,,,,100%,,100%,,,TRUE,TRUE,TRUE,4,TRUE,3,D603D (GAC?GAT) ,SynWH7803_2356 ?,hypothetical protein
+"101,693",,C?T,,,,,,,,,,,,?,,,,,,,,,,,,,,,,,,,,,100%,,,,FALSE,TRUE,FALSE,0,TRUE,1,D237N (GAC?AAC) ,SynWH7803_0099 ?,hypothetical protein
+"102,850",,C?T,,,,,,,,,,,,?,,,,,,,,,,,,,,,100%,,,,,,,,,,FALSE,TRUE,FALSE,0,TRUE,1,intergenic (+30/?29),SynWH7803_0101 ? / ? SynWH7803_0102,hypothetical protein/glucose?1?phosphate thymidylyltransferase
+"103,376",,C?T,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,100%,,,,FALSE,TRUE,FALSE,0,TRUE,1,P166P (CCC?CCT) ,SynWH7803_0102 ?,glucose?1?phosphate thymidylyltransferase
+"103,845",,A?T,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,100%,,,,FALSE,TRUE,FALSE,0,TRUE,1,Q12H (CAA?CAT) ,rfbC ?,"dTDP?4?dehydrorhamnose 3,5?epimerase"
+"103,909",,G?A,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,100%,,,,,FALSE,TRUE,FALSE,0,TRUE,1,E34K (GAG?AAG) ,rfbC ?,"dTDP?4?dehydrorhamnose 3,5?epimerase"
+"104,094",,C?T,,,,,,,,,,,,?,,,,,,,,,,,,,,,,,,,,100%,,,,,FALSE,TRUE,FALSE,0,TRUE,1,A95A (GCC?GCT) ,rfbC ?,"dTDP?4?dehydrorhamnose 3,5?epimerase"
+"104,119",,C?T,,,,,,,,,,,,?,,,,,,,,,,,,,,,,,,,,,100%,,,,FALSE,TRUE,FALSE,0,TRUE,1,R104C (CGC?TGC) ,rfbC ?,"dTDP?4?dehydrorhamnose 3,5?epimerase"
+"104,891",,?1 bp,,,,,,,,,?,,,?,,,,,,,,,,,?,,,,,,,,,,,,100%,,FALSE,TRUE,FALSE,0,TRUE,1,coding (468/888 nt),rfbD ?,putative dTDP?4?dehydrorhamnose reductase
+"104,895",,G?T,,,,,,,,,?,,,?,,,,,,,,,,,?,,,,,,,,,,,,100%,,FALSE,TRUE,FALSE,0,TRUE,1,A158S (GCG?TCG) ,rfbD ?,putative dTDP?4?dehydrorhamnose reductase
+"104,908",,A?T,,,,,,,,,?,,,?,,,,,,,,,,,?,,,,,,,,,,100%,,,,FALSE,TRUE,FALSE,0,TRUE,1,N162I (AAC?ATC) ,rfbD ?,putative dTDP?4?dehydrorhamnose reductase
+"106,237",,G?A,,,,,,,,,,,,?,,,,,,,,,,,,,100%,,,,,,,,,,,,FALSE,TRUE,FALSE,0,TRUE,1,V312I (GTC?ATC) ,SynWH7803_0105 ?,sugar transferase
+"157,239",,2 bp?AC,,,,,,,,,,,,?,,,,,,,,,,,,,,,,,,,,,,100%,,,FALSE,TRUE,FALSE,0,TRUE,1,coding (118?119/981 nt),SynWH7803_0140 ?,glycosyl transferase family protein
+"256,217",,C?A,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,100%,,,FALSE,TRUE,FALSE,0,TRUE,1,P58T (CCG?ACG) ,SynWH7803_0232 ?,hypothetical protein
+"284,356",,A?G,,,,,,,,,,,,?,,,,,,,,,,,100%,,,,,,,,,,,,,,FALSE,TRUE,FALSE,0,TRUE,1,Y333H (TAT?CAT) ,SynWH7803_0260 ?,ABC transporter ATPase/permease
+"337,494",,G?T,,,,,,,,,,,,?,,,,,,,,,,,,,,,100%,,,,,,,,,,FALSE,TRUE,FALSE,0,TRUE,1,G15V (GGT?GTT) ,SynWH7803_0311 ?,alpha?glucosidase
+"414,594",,?1 bp,,,,,,,,,,,,?,,,,,,,,,,,,,,,,,,,,,,,100%,,FALSE,TRUE,FALSE,0,TRUE,1,intergenic (?85/?116),SynWH7803_0389 ? / ? SynWH7803_0390,hypothetical protein/hypothetical protein
+"482,235",,2 bp?CC,,,,,,,,,,,,?,,,,,,,,,,,100%,,,,,,,,,,,,,,FALSE,TRUE,FALSE,0,TRUE,1,coding (737?738/960 nt),SynWH7803_0470 ?,oxidoreductase
+"498,871",,G?A,,,,,,,,,,,,?,,,,,,,,,,,100%,,,,,,,,,,,,,,FALSE,TRUE,FALSE,0,TRUE,1,A231T (GCT?ACT) ,cpeY ?,bilin biosynthesis protein CpeY
+"504,192",,G?A,,,,,,,,,,,,,,,,,,,,,,,,100%,,,,,,,,,,,,,FALSE,TRUE,FALSE,0,TRUE,1,I96I (ATC?ATT) ,cpeS ?,phycoerythrin linker gene region
+"568,385",,A?G,,,,,,,,,,,,?,,,,,,,,,,,,,100%,,,,,,,,,,,,FALSE,TRUE,FALSE,0,TRUE,1,L150L (CTA?CTG) ,SynWH7803_0562 ?,hypothetical protein
+"771,126",,2 bp?TG,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,100%,,,FALSE,TRUE,FALSE,0,TRUE,1,coding (855?856/1077 nt),psbA ?,photosystem II protein D1
+"771,129",,2 bp?AC,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,100%,,,FALSE,TRUE,FALSE,0,TRUE,1,coding (858?859/1077 nt),psbA ?,photosystem II protein D1
+"771,136",,A?G,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,100%,,,FALSE,TRUE,FALSE,0,TRUE,1,I289V (ATC?GTA) ,psbA ?,photosystem II protein D1
+"771,138",,C?A,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,100%,,,FALSE,TRUE,FALSE,0,TRUE,1,I289V (ATC?GTA) ,psbA ?,photosystem II protein D1
+"771,150",,G?A,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,100%,,,FALSE,TRUE,FALSE,0,TRUE,1,A293A (GCG?GCA) ,psbA ?,photosystem II protein D1
+"771,183",,2 bp?TA,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,100%,,,FALSE,TRUE,FALSE,0,TRUE,1,coding (912?913/1077 nt),psbA ?,photosystem II protein D1
+"771,186",,2 bp?CG,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,100%,,,FALSE,TRUE,FALSE,0,TRUE,1,coding (915?916/1077 nt),psbA ?,photosystem II protein D1
+"771,189",,G?T,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,100%,,,FALSE,TRUE,FALSE,0,TRUE,1,L306L (CTG?CTT) ,psbA ?,photosystem II protein D1
+"771,193",,3 bp?AGT,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,100%,,,FALSE,TRUE,FALSE,0,TRUE,1,coding (922?924/1077 nt),psbA ?,photosystem II protein D1
+"771,201",,4 bp?TAAA,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,100%,,,FALSE,TRUE,FALSE,0,TRUE,1,coding (930?933/1077 nt),psbA ?,photosystem II protein D1
+"771,207",,2 bp?TA,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,100%,,,FALSE,TRUE,FALSE,0,TRUE,1,coding (936?937/1077 nt),psbA ?,photosystem II protein D1
+"771,210",,G?C,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,100%,,,FALSE,TRUE,FALSE,0,TRUE,1,L313L (CTG?CTC) ,psbA ?,photosystem II protein D1
+"771,222",,T?A,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,100%,,,FALSE,TRUE,FALSE,0,TRUE,1,A317A (GCT?GCA) ,psbA ?,photosystem II protein D1
+"771,225",,T?C,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,100%,,,FALSE,TRUE,FALSE,0,TRUE,1,D318D (GAT?GAC) ,psbA ?,photosystem II protein D1
+"771,228",,G?T,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,100%,,,FALSE,TRUE,FALSE,0,TRUE,1,V319V (GTG?GTT) ,psbA ?,photosystem II protein D1
+"771,231",,G?C,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,100%,,,FALSE,TRUE,FALSE,0,TRUE,1,L320L (CTG?CTC) ,psbA ?,photosystem II protein D1
+"771,237",,C?T,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,100%,,,FALSE,TRUE,FALSE,0,TRUE,1,R322R (CGC?CGT) ,psbA ?,photosystem II protein D1
+"771,240",,4 bp?TGGT,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,100%,,,FALSE,TRUE,FALSE,0,TRUE,1,coding (969?972/1077 nt),psbA ?,photosystem II protein D1
+"771,246",,C?T,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,100%,,,FALSE,TRUE,FALSE,0,TRUE,1,L325L (CTC?CTT) ,psbA ?,photosystem II protein D1
+"771,249",,A?C,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,100%,,,FALSE,TRUE,FALSE,0,TRUE,1,G326G (GGA?GGC) ,psbA ?,photosystem II protein D1
+"771,273",,C?T,,,,,,,,,,,,?,,,,,,,,,,,,,,,,,,,,,,100%,,,FALSE,TRUE,FALSE,0,TRUE,1,N334N (AAC?AAT) ,psbA ?,photosystem II protein D1
+"771,288",,C?T,,,,,,,,,,,,?,,,,,,,,,,,,,,,,,,,,,,100%,,,FALSE,TRUE,FALSE,0,TRUE,1,P339P (CCC?CCT) ,psbA ?,photosystem II protein D1
+"771,291",,C?T,,,,,,,,,,,,?,,,,,,,,,,,,,,,,,,,,,,100%,,,FALSE,TRUE,FALSE,0,TRUE,1,L340L (CTC?CTT) ,psbA ?,photosystem II protein D1
+"771,297",,G?T,,,,,,,,,,,,?,,,,,,,,,,,,,,,,,,,,,,100%,,,FALSE,TRUE,FALSE,0,TRUE,1,L342L (CTG?CTT) ,psbA ?,photosystem II protein D1
+"771,303",,2 bp?TG,,,,,,,,,,,,?,,,,,,,,,,,,,,,,,,,,,,100%,,,FALSE,TRUE,FALSE,0,TRUE,1,coding (1032?1033/1077 nt),psbA ?,photosystem II protein D1
+"821,170",,G?A,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,100%,,,FALSE,TRUE,FALSE,0,TRUE,1,R602W (CGG?TGG) ,ggt ?,gamma?glutamyltranspeptidase
+"1,019,857",,C?A,,,,,,,,,,,,?,,,,,,,,,,,,,,,,,,,,,,,100%,,FALSE,TRUE,FALSE,0,TRUE,1,P37T (CCG?ACG) ,ftsH ?,cell division protein FtsH
+"1,020,535",,G?T,,,,,,,,,,,,?,,,,,,,,,,,,,,,100%,,,,,,,,,,FALSE,TRUE,FALSE,0,TRUE,1,G263C (GGC?TGC) ,ftsH ?,cell division protein FtsH
+"1,175,012",,G?A,,,,,,,,,,,,?,,,,,,,,,,,,,,,100%,,,,,,,,,,FALSE,TRUE,FALSE,0,TRUE,1,S24S (TCC?TCT) ,SynWH7803_1279 ?,hypothetical protein
+"1,268,916",,C?T,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,100%,,,,FALSE,TRUE,FALSE,0,TRUE,1,S44N (AGT?AAT) ,SynWH7803_1381 ?,cation efflux family protein
+"1,268,922",,C?G,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,100%,,,,FALSE,TRUE,FALSE,0,TRUE,1,R42P (CGG?CCG) ,SynWH7803_1381 ?,cation efflux family protein
+"1,272,988",,?1 bp,,,,,,,,,,,,?,,,,,,,,,,,,,,,,,,,,,,100%,,,FALSE,TRUE,FALSE,0,TRUE,1,coding (42/1161 nt),SynWH7803_1386 ?,two?component system sensor histidine kinase
+"1,328,915",,+T,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,100%,,,FALSE,TRUE,FALSE,0,TRUE,1,coding (205/636 nt),SynWH7803_1446 ?,hypothetical protein
+"1,640,030",,G?T,,,,,,,,,,,,,,,,,,,,,,,,,,?,,,,,,,100%,,,,FALSE,TRUE,FALSE,0,TRUE,1,P169T (CCG?ACG) ,SynWH7803_1789 ?,hypothetical protein
+"2,034,338",,G?A,,,,,,,,,,,,,,,,,,,,,,,,,,,100%,,,,,,,,,,FALSE,TRUE,FALSE,0,TRUE,1,G328D (GGT?GAT) ,SynWH7803_2208 ?,Fe?S oxidoreductase
+"102,841",,G?A,,,,,,,,,,,,?,,,,,,,100%,100%,,,,,,,,,,,,,,,,,FALSE,TRUE,TRUE,2,FALSE,0,intergenic (+21/?38),SynWH7803_0101 ? / ? SynWH7803_0102,hypothetical protein/glucose?1?phosphate thymidylyltransferase
+"106,218",,G?A,,,,,,,,,,,,?,,,,100%,,,,,,,,,,,,,,,,,,,,,FALSE,TRUE,TRUE,1,FALSE,0,W305* (TGG?TGA) ,SynWH7803_0105 ?,sugar transferase
+"163,807",,G?T,,,,,,,,,,,,,,,,100%,,,,,,,,,,,,,,,,,,,,,FALSE,TRUE,TRUE,1,FALSE,0,I305I (ATC?ATA) ,miaA ?,tRNA delta(2)?isopentenylpyrophosphate transferase
+"185,296",,?1 bp,,,,,,,,,,,,,,,,,,,,100%,,,,,,,,,,,,,,,,,FALSE,TRUE,TRUE,1,FALSE,0,coding (882/1506 nt),xylB ?,xylulose kinase
+"239,739",,A?G,,,,,,,,,,,,,,100%,,,,,,,,,,,,,,,,,,,,,,,FALSE,TRUE,TRUE,1,FALSE,0,L340P (CTT?CCT) ,SynWH7803_0219 ?,hypothetical protein
+"239,935",,G?T,,,,,,,,,,,,?,,,100%,,,,,,,,,,,,,,,,,,,,,,FALSE,TRUE,TRUE,1,FALSE,0,H275N (CAC?AAC) ,SynWH7803_0219 ?,hypothetical protein
+"240,454",,C?A,,,,,,,,,,,,,,,,,,,,100%,,,,,,,,,,,,,,,,,FALSE,TRUE,TRUE,1,FALSE,0,E102* (GAA?TAA) ,SynWH7803_0219 ?,hypothetical protein
+"240,719",,G?C,,,,,,,,,,,,?,,,,,,,100%,,,,,,,,,,,,,,,,,,FALSE,TRUE,TRUE,1,FALSE,0,Y13* (TAC?TAG) ,SynWH7803_0219 ?,hypothetical protein
+"565,198",,+C,,,,,,,,,,,,?,,100%,,,,,,,,,,,,,,,,,,,,,,,FALSE,TRUE,TRUE,1,FALSE,0,coding (4/1719 nt),SynWH7803_0558 ?,hypothetical protein
+"934,026",,C?G,,,,,,,,,,,,?,,,,,,,,,100%,,,,,,,,,,,,,,,,FALSE,TRUE,TRUE,1,FALSE,0,L338V (CTC?GTC) ,SynWH7803_1018 ?,hypothetical protein
+"1,135,395",,G?T,,,,,,,,,,,,?,,,,,,,,,100%,,,,,,,,,,,,,,,,FALSE,TRUE,TRUE,1,FALSE,0,S5Y (TCT?TAT) ,pstA ?,phosphate ABC transporter permease
+"1,271,925",,?1 bp,,,,,,,,,,,,?,,,,,,,,,100%,,,,,,,,,,,,,,,,FALSE,TRUE,TRUE,1,FALSE,0,coding (1105/1161 nt),SynWH7803_1386 ?,two?component system sensor histidine kinase
+"1,272,000",,C?A,,,,,,,,,,,,?,,,,,,100%,,,,100%,,,,,,,,,,,,,,,FALSE,TRUE,TRUE,2,FALSE,0,G344* (GGA?TGA) ,SynWH7803_1386 ?,two?component system sensor histidine kinase
+"1,272,008",,C?A,,,,,,,,,,,,,,,,,,100%,,,,100%,,,,,,,,,,,,,,,FALSE,TRUE,TRUE,2,FALSE,0,S341I (AGT?ATT) ,SynWH7803_1386 ?,two?component system sensor histidine kinase
+"1,372,875",,C?A,,,,,,,,,,,,,,,,100%,,,,,,,,,,,,,,,,,,,,,FALSE,TRUE,TRUE,1,FALSE,0,intergenic (?79/?38),SynWH7803_1498 ? / ? RNA_30,hypothetical protein/tRNA?Ser
+"1,379,294",,A?C,,,,,,,,,,,,?,,,100%,,,,,,,,,,,,,,,,,,,,,,FALSE,TRUE,TRUE,1,FALSE,0,R331R (CGA?CGC) ,recC ?,exodeoxyribonuclease V subunit gamma
+"1,618,650",,G?C,,,,,,,,,,,,?,,,,,,,100%,,,,,,,,,,,,,,,,,,FALSE,TRUE,TRUE,1,FALSE,0,L150L (CTG?CTC) ,ilvC ?,ketol?acid reductoisomerase
+"1,703,838",,G?A,,,,,,,,,,,,,,,,100%,,,,,,,?,,,,,,,,,,,,,,FALSE,TRUE,TRUE,1,FALSE,0,G163S (GGT?AGT) ,SynWH7803_1859 ?,glycosyltransferase family protein
+"1,723,445",,C?A,,,,,,,,,,,,?,,,,100%,,,,,,,,,,,,,,,,,,,,,FALSE,TRUE,TRUE,1,FALSE,0,V70L (GTG?TTG) ,SynWH7803_1882 ?,hypothetical protein
+"2,050,905",,G?A,,,,,,,,,,,,?,,,,,,100%,,,,100%,,,,,,,,,,,,,,,FALSE,TRUE,TRUE,2,FALSE,0,L414F (CTT?TTT) ,SynWH7803_2230 ?,Na+/H+ antiporter
+"2,125,808",,G?T,,,,,,,,,,,,?,,,100%,,,,,,,,,,,,,,,,,,,,,,FALSE,TRUE,TRUE,1,FALSE,0,intergenic (?72/?44),purE ? / ? nagA,phosphoribosylaminoimidazole carboxylase catalytic subunit/N?acetylglucosamine?6?phosphate deacetylase
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,2,6,5,5,3,4,3,6,7,2,3,3,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,

@@ -1,0 +1,14 @@
+old_locus_tag,new_locus_tag,function,gene.start,gene.end,direction,lane,EC_number,product,protein.id
+SynWH7803_0099,SYNWH7803_RS00480,other,101493,102401,r,1,NA,hypothetical protein,WP_011932033.1
+SynWH7803_0102,SYNWH7803_RS00485,sugar.synthesis,102879,103820,f,1,2.7.7.24,glucose-1-phosphate thymidylyltransferase,WP_011932036.1
+SynWH7803_0103,SYNWH7803_RS00490,sugar.synthesis,103810,104427,f,1,5.1.3.13,"dTDP-4-dehydrorhamnose 3,5-epimerase",WP_011932037.1
+SynWH7803_0104,SYNWH7803_RS00495,sugar.synthesis,104424,105311,f,1,1.1.1.133,NAD(P)-dependent oxidoreductase,WP_011932038.1
+SynWH7803_0105,SYNWH7803_RS00500,transferase,105304,106653,f,1,NA,sugar transferase,WP_011932039.1
+SynWH7803_0139,,transferase,,,,,,,
+SynWH7803_0140,SYNWH7803_RS00670,transferase,156377,157357,r,3,NA,glycosyl transferase,WP_011932074.1
+SynWH7803_0218,,transferase,,,,,,,
+SynWH7803_0219,SYNWH7803_RS01065,transport,239453,240757,r,5,NA,hypothetical protein,WP_011932149.1
+SynWH7803_0232,SYNWH7803_RS01130,transferase,256046,256762,f,7,NA,hypothetical protein,WP_011932162.1
+SynWH7803_0260,,,,,,,,,
+SynWH7803_1386,SYNWH7803_RS06815,membrane,1271873,1273033,r,9,NA,histidine kinase,WP_011933290.1
+SynWH7803_1859,,transferase,,,,,,,

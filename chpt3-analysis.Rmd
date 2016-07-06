@@ -1,0 +1,324 @@
+---
+title: "syn-genome_DataAnalysis"
+author: "Larsen ML"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+header-includes:
+   - \usepackage{array}
+output: pdf_document
+fontsize: 11pt
+geometry: margin = 0.75in
+---
+
+```{r setup}
+setwd("C:/Users/meglarse/GitHub/larsen-dissertation/analyses/chpt3_Genetic/")
+
+#Load Packages
+require(phylobase);require(picante)
+require(ape)
+
+```
+
+
+#Project Summary
+
+This project was designed to examine the impact of nutrient limitation on genomic adaptation to phage predation.  
+Specifically, I evaluated mutational biases including the number and type of mutation, genomic location of each mutation as well as other metrics including the ratio of transversions to transitions and the ration of nonsynonymous to synonymous mutations. 
+
+All statistical analyses for this project were performed with `r version$version.string`.
+
+** COllaborators**
+
+**JE Barrick**, The University of Texas at Austin
+**JT Lennon**, Indiana University 
+
+**Project Questions**
+1. What are the genome mutations conferring resistance to phage infection?
+  - How many mutations are there per strain? in/del, SNP, S vs NS
+  - What are the mutation observed in each strain?
+2. Are all completely resistant phenotypes genetically similar?
+3. Does nutrient limitation affect observed mutations in candidate resistance genes?
+
+**Data collection**
+Data for this analysis was collected from whole genome sequences of senstivive and resistant *Synechococcus* strains. Short read genomic sequences from both the Illumina Hi-Seq and Mi-Seq platforms were scaffolded onto an NCBI *Synechococcus* WH7803 reference strain using the computational program *breseq*. Previous analyses were completed in Excel. 
+
+\newpage
+\tableofcontents
+\newpage
+
+
+# Mutational analysis
+## What are the genome mutations conferring resistance to phage infection?
+
+```{r data-formatting}
+# read in selected data files for analysis
+breseq <- read.csv("./data/breseq.compare.csv", header = T)      #breseq produced compare file
+
+# Prior to this point, the mutation annotation data has been moved to a separate file. 
+
+breseq = breseq[,-c(2,39,40,41)]
+
+# restructure data for analysis
+# rename the strains
+N <- 6
+strains = as.matrix(breseq[1,-1])
+strain.names <- sapply(strsplit(strains, ""), function(x, n) paste(head(x, n), collapse = ""), N)
+
+
+# Remove unnessary rows
+breseq <- breseq[-which(breseq[,1]=="position"),]
+
+# Convert matrix into binary data file. 
+# Predicted mutation goes from 100% to 1
+# empty cell to 0
+# "?" to an NA suggesting that there isn't enough information to predict a mutation
+breseq <- as.matrix(breseq)
+breseq[breseq == "100%"] <- 1
+breseq[breseq == "?"] <- 0
+breseq[breseq == ""] <- 0
+
+#rename the columns and rows
+breseq <- breseq[-1,]
+
+rownames(breseq) <- breseq[,1]
+breseq <- breseq[,-1]
+colnames(breseq) = strain.names
+
+# remove rRNA hits
+#breseq <- breseq[-c(which(rownames(breseq) == "2,019,461"):which(rownames(breseq) == "2,020,083")),]
+
+# Remove rows with no predicted mutations
+class(breseq) = "numeric"
+breseq <- breseq[-c(which(rowSums(breseq)==35)),]
+#rowSums(breseq)
+
+# separate the mutation data
+mut.num <- seq(1,nrow(breseq),1)
+
+# add mutation numbers and remove from the breseq data file
+breseq.mutno <- cbind(mut.num,rownames(breseq))
+
+# transform the matrix to get strains in the rows
+breseq <- t(breseq)
+breseq.data <- breseq[-c(which(rowSums(breseq)==0)),]
+
+print(rownames(breseq[which(rowSums(breseq)==0),]))
+
+#merge the meta data
+#breseq <- merge(strains, breseq, by = "strain.name", all = T)
+
+```
+
+```{r, eval = TRUE}
+strains <- read.csv("./data/strains.csv",header = T)
+
+breseq.all <- as.data.frame(merge(strains,breseq, by.x = "strain_ID",by.y = 0))
+
+breseq.minus <- breseq.all[breseq.all$trt=="Ph-",]
+breseq.minus <- breseq.minus[,-c(which(colSums(breseq.minus[,6:117]) ==0))]
+breseq.minus.muts = colnames(breseq.minus[3:41])
+breseq.plus <- breseq.all[breseq.all$trt=="Ph+",]
+breseq.plus <- breseq.plus[,-c(which(colSums(breseq.plus[,6:117]) ==0))]
+breseq.plus.muts = colnames(breseq.plus[5:89])
+
+both <- intersect(breseq.minus.muts,breseq.plus.muts)
+phage.minus.only <- setdiff(breseq.minus.muts,breseq.plus.muts)
+phage.plus.only <- setdiff(breseq.plus.muts,breseq.minus.muts)
+
+```
+
+```{r}
+breseq.N.plus <- breseq.plus[breseq.plus$lim == "N",]
+breseq.N.plus.muts <- colnames(breseq.N.plus[5:ncol(breseq.N.plus)])
+breseq.N.minus <- breseq.minus[breseq.minus$lim == "N",]
+breseq.N.minus.muts <- colnames(breseq.N.minus[3:ncol(breseq.N.minus)])
+breseq.P.plus <-breseq.plus[breseq.plus$lim == "P",]
+breseq.P.plus.muts <- colnames(breseq.P.plus[5:ncol(breseq.P.plus)])
+breseq.P.minus <- breseq.minus[breseq.minus$lim == "P",]
+breseq.P.minus.muts <- colnames(breseq.P.minus[3:ncol(breseq.P.minus)])
+
+# Mutations unique to phage exposed
+setdiff(breseq.N.plus.muts,breseq.N.minus.muts)
+# mutations unique to unexposed
+setdiff(breseq.N.minus.muts,breseq.N.plus.muts)
+
+# Mutations unique to phage exposed
+setdiff(breseq.P.plus.muts,breseq.P.minus.muts)
+# Mutations unique to phage exposed
+setdiff(breseq.P.minus.muts,breseq.P.plus.muts)
+```
+\newpage
+
+## Visualize genomic mutations
+```{r}
+# integrate circle plot script for all genomic mutations and highlight the ones from the candidate gene mutation list
+# Ideally contains circle with gene sections and corresponding mutations added in
+
+```
+\newpage
+
+# Breadth of resistance
+
+In a previous study, we challenged host and phage strains in a time-shift experiment. 
+We selected strains with unique profiles to examine the genetic diversity underlying the phenotypic patterns in resistance to phage isolated from the NL and PL environments.
+
+## Summary of major results
+1. The ancestor WH7803 was sensitive to all challenged phages from each of the resource treatments. 
+2. Thirteen of the 28 isolates were completely resistant to all challenged phages. 
+3. Average resistance in the remaining strains ranged between 0.287 and 0.960. 
+  - in every case, hosts were more resistant to PL phages than to NL phages (stats)
+  - boxplot for strains (color hosts by NL and PL, shapes by +Ph and -Ph)
+
+\newpage
+```{r bor-dataFormatting}
+# Read in data file
+inf.mat <- as.matrix(read.csv("./data/bor.csv"))         
+
+# Rearrange data file for the appropriate analyses
+inf.mat <- t(inf.mat)
+inf.strains <- inf.mat[8:nrow(inf.mat),6]
+p.dat <- inf.mat[1:6,7:ncol(inf.mat)]
+inf.mat <- inf.mat[-c(1:7),-c(1:6)]
+rownames(inf.mat) <- inf.strains
+class(inf.mat) <- "numeric"
+
+# Subset the infection matrix for only the sequenced strains
+index2 <- which(rownames(inf.mat)  %in% strain.names)
+WH7803 <- inf.mat[rownames(inf.mat)=="WH7803",]
+inf.mat2 <- inf.mat[index2,]
+inf.mat2 <- rbind(inf.mat2,WH7803)
+inf.mat2 <- inf.mat2[-c(27,31),-c(95,96)]
+class(inf.mat2) = "numeric"
+```
+
+```{r resistance}
+# Function to calculate resistance
+infect.prop<-function(x){
+  x <- x[!is.na(x)] # remove NA's
+  length(x[x == 1])/length(x)
+	}
+
+inf.dat <- matrix(NA,nrow = length(inf.strains), ncol=4)
+
+# Calculate resistance
+#rownames(inf.dat) <- inf.strains
+inf.dat[,1] <- inf.strains
+inf.dat [,2] <- round(apply(inf.mat,1,infect.prop),digits = 2)
+inf.dat[1:85,3] <- round(apply(inf.mat[1:85,2:46],1,infect.prop),digits = 2)
+inf.dat[88:225,3] <- apply(inf.mat[88:nrow(inf.mat),47:96],1,infect.prop)
+inf.dat[1:85,4] <- apply(inf.mat[1:85,47:96],1,infect.prop)
+inf.dat[88:225,4] <- apply(inf.mat[88:nrow(inf.mat),2:46],1,infect.prop)
+names(inf.dat) <- c(NULL,NULL)
+
+#Subset calculated  matrix with the sequenced strain names
+WH7803 <- inf.dat[inf.dat[,1]=="WH7803"]
+index <- which(inf.dat[,1]  %in% strain.names) 
+inf.dat2 <- inf.dat[index,]
+inf.dat2 = inf.dat2[-c(27,31),]   # remove 12P2S5, 21P2S4 due to lack of inf data
+inf.dat2 <- rbind(WH7803,inf.dat2)
+rownames(inf.dat2) <- NULL
+colnames(inf.dat2) = c("strain","Average","Home","Away")
+#write.csv(inf.dat2,file = "./supporting-files/data/BOR.csv",row.names=FALSE)
+rownames(inf.dat2) <- inf.dat2[,1]
+inf.dat2 <- inf.dat2[,-1]
+class(inf.dat2)="numeric"
+
+```
+
+\newpage
+# Genomics and Resistance
+```{r dendrogram}
+#Note: Make two separate trait tables then merge data together in one graphic for the manuscript
+
+require(ape); require(phylobase); require(RColorBrewer);require(adephylo)
+
+# Make the distance matrix with infection matrix
+inf.mat3 <- inf.mat2[-32,]
+
+# Due to the high number of zeros, must transform data
+#inf.dist <- vegdist(decostand(inf.mat3, method = "log"), method = "gower", na.rm = TRUE)
+inf.dist <- vegdist(inf.mat3, method = "gower", na.rm = TRUE)
+nj.tree <- nj(inf.dist)
+
+# Define the Outgroup
+#outgroup <- match("WH7803", nj.tree$tip.label)
+
+# Create a Rooted Tree {ape}
+#nj.rooted <- root(nj.tree, outgroup, resolve.root = TRUE)
+#nj.rooted$edge.length <- nj.rooted$edge.length + min(nj.rooted$edge.length)
+#nj.rooted <- drop.tip(nj.rooted, "WH7803")
+
+# Alternative clustering algorithm for distance matrix
+hc <- hclust(inf.dist, method = "complete")
+hcp <- as.phylo(hc)
+
+par(mar=c(1,1,1,1) + 0.2)
+mypalette <- colorRampPalette(brewer.pal(9, "YlOrRd"))
+mypalette2 <- colorRampPalette(brewer.pal(9, "YlGnBu"))
+
+
+mut.cts <- read.csv("./data/mut-cts.csv", header=T)
+strain.list <- read.csv("./data/strains.csv")     #strain metadata
+
+# Merge all the data together to make the tree
+tree.dat <- merge(strain.list,mut.cts,by.x="strain_ID",by.y="strain")
+tree.dat <- merge(inf.dat2,tree.dat,by.x = 0 ,by.y="strain_ID")
+row.names(tree.dat) <- tree.dat[,1]
+tree.dat2 <- tree.dat[-32,-c(1,8)]
+
+pdf(file="./supporting-files/figures/fig-pub_traits-res.pdf",width = 3, height = 6)
+
+x <- phylo4d(x = hcp, inf.dat2)
+table.phylo4d(x, treetype = "phylo", symbol = "colors", show.node = TRUE, 
+              cex.label = 0.35, scale = FALSE, use.edge.length = TRUE,
+              edge.color = "black", edge.width = 1, box = FALSE, grid = TRUE,
+              col= mypalette2(25), 
+              # col = gray.colors(15, start = 0.3, end = 0.9, gamma = 2.2, alpha = NULL),
+              pch = 15, cex.symbol = 1.25,
+              ratio.tree = 0.25, cex.legend = 1.25, center = FALSE) 
+
+dev.off()
+
+
+# Resistance + mutations
+pdf(file="./supporting-files/figures/fig-pub_traits2.pdf",width = 5, height = 6)
+
+x <- phylo4d(x = hcp, tree.dat2)
+table.phylo4d(x, treetype = "phylo", symbol = "colors", show.node = TRUE, 
+              cex.label = 0.35, scale = FALSE, use.edge.length = TRUE,
+              edge.color = "black", edge.width = 2, box = FALSE, grid = TRUE,
+              col= mypalette2(50), 
+              # col = gray.colors(15, start = 0.3, end = 0.9, gamma = 2.2, alpha = NULL),
+              pch = 15, cex.symbol = 1,
+              ratio.tree = 0.20, cex.legend = 1, center = FALSE) 
+
+dev.off()
+
+```
+\newpage
+```{r dist-stats}
+require(ade4)
+
+#check dimensions of matrices
+dim(breseq);dim(inf.mat2)
+setdiff(rownames(breseq),rownames(inf.mat2))
+setdiff(rownames(inf.mat2),rownames(breseq))
+
+rmv=c(22,28,31,33,34)
+breseq = breseq[-rmv,]
+#inf.mat2= inf.mat2[-32,]
+#inf.dat2 = inf.dat2[-32,]
+
+# Make a distance matrix for the mutational data
+breseq.dist <- vegdist(breseq, method="gower", na.rm = TRUE)
+inf.dist <- vegdist(inf.mat2, method="gower", na.rm = TRUE)
+
+# perform Mantel Test between two distance matrices
+man.test <- mantel.randtest(breseq.dist, inf.dist, nrepet = 999)
+
+plot(man.test)
+cols = c(2:8)
+dat <- tree.dat[-32,cols]
+dat[,4] = droplevels(dat[,4])
+adonis(breseq.dist ~ dat$Average*dat$lim*dat$trt, permutations = 999)
+adonis(inf.dist ~ dat$Average*dat$lim*dat$trt, permutations = 999)
+```

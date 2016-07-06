@@ -1,0 +1,231 @@
+<!DOCTYPE html
+PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+<html>
+<head>
+<title>Mutation Comparison</title>
+<style type = "text/css">
+body {font-family: sans-serif; font-size: 11pt;}
+th {background-color: rgb(0,0,0); color: rgb(255,255,255);}
+table {background-color: rgb(1,0,0); color: rgb(0,0,0);}
+tr {background-color: rgb(255,255,255);}
+.mutation_in_codon {color:red; text-decoration : underline;}
+.mutation_header_row {background-color: rgb(0,130,0);}
+.read_alignment_header_row {background-color: rgb(255,0,0);}
+.missing_coverage_header_row {background-color: rgb(0,100,100);}
+.new_junction_header_row {background-color: rgb(0,0,155);}
+.copy_number_header_row {background-color: rgb(153,102,0);}
+.alternate_table_row_0 {background-color: rgb(255,255,255);}
+.alternate_table_row_1 {background-color: rgb(235,235,235);}
+.gray_table_row {background-color: rgb(230,230,245);}
+.polymorphism_table_row {background-color: rgb(160,255,160);}
+.highlight_table_row {background-color: rgb(192,255,255);}
+.reject_table_row {background-color: rgb(255,200,165);}
+.information_table_row {background-color: rgb(200,255,255);}
+.junction_repeat {background-color: rgb(255,165,0)}
+.junction_gene {}
+.hidden { display: none; }
+.unhidden { display: block; }
+
+</style>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<script type="text/javascript">
+  function hideTog(divID) {
+    var item = document.getElementById(divID);
+    if (item) {
+      item.className=(item.className=='hidden')?'unhidden':'hidden';
+    }
+  }
+  function showTog(butID) {
+    var button = document.getElementById(butID);
+    if (button) {
+      button.value=(button.value=='Show')?'Hide':'Show';
+    }
+  }
+</script>
+
+</head>
+<body>
+<!--Output Html_Mutation_Table_String-->
+<table border="0" cellspacing="1" cellpadding="3">
+<tr><th colspan="9" align="left" class="mutation_header_row">Predicted mutations</th></tr><tr>
+<th>position</th>
+<th>mutation</th>
+<th>V03N3S2</th>
+<th>V05N2S2</th>
+<th>V05N3S1</th>
+<th>V21N2S3</th>
+<th>annotation</th>
+<th>gene</th>
+<th width="100%">description</th>
+</tr>
+
+<!-- Item Lines -->
+
+<!-- Print The Table Row -->
+<tr class="alternate_table_row_1">
+<td align="right">8,273</td><!-- Position -->
+<td align="center">C&rarr;T</td><!-- Cell Mutation -->
+<td align="right"></td><td align="right"></td><td align="right"></td><td align="right">100%</td>
+<td align="center">E27K&nbsp;(<font class="mutation_in_codon">G</font>AA&rarr;<font class="mutation_in_codon">A</font>AA)&nbsp;</td>
+<td align="center"><i>CPJG_00019</i>&nbsp;&larr;</td>
+<td align="left">hypothetical protein</td>
+</tr>
+<!-- End Table Row -->
+
+<!-- Print The Table Row -->
+<tr class="alternate_table_row_0">
+<td align="right">16,636</td><!-- Position -->
+<td align="center">C&rarr;T</td><!-- Cell Mutation -->
+<td align="right"></td><td align="right"></td><td align="right"></td><td align="right">100%</td>
+<td align="center">R45H&nbsp;(C<font class="mutation_in_codon">G</font>T&rarr;C<font class="mutation_in_codon">A</font>T)&nbsp;</td>
+<td align="center"><i>CPJG_00040</i>&nbsp;&larr;</td>
+<td align="left">hypothetical protein</td>
+</tr>
+<!-- End Table Row -->
+
+<!-- Print The Table Row -->
+<tr class="alternate_table_row_1">
+<td align="right">17,511</td><!-- Position -->
+<td align="center">G&rarr;T</td><!-- Cell Mutation -->
+<td align="right"></td><td align="right"></td><td align="right">100%</td><td align="right"></td>
+<td align="center">S225Y&nbsp;(T<font class="mutation_in_codon">C</font>T&rarr;T<font class="mutation_in_codon">A</font>T)&nbsp;</td>
+<td align="center"><i>CPJG_00042</i>&nbsp;&larr;</td>
+<td align="left">hypothetical protein</td>
+</tr>
+<!-- End Table Row -->
+
+<!-- Print The Table Row -->
+<tr class="alternate_table_row_0">
+<td align="right">22,647</td><!-- Position -->
+<td align="center">G&rarr;T</td><!-- Cell Mutation -->
+<td align="right"></td><td align="right"></td><td align="right"></td><td align="right">100%</td>
+<td align="center">F180L&nbsp;(TT<font class="mutation_in_codon">C</font>&rarr;TT<font class="mutation_in_codon">A</font>)&nbsp;</td>
+<td align="center"><i>CPJG_00044</i>&nbsp;&larr;</td>
+<td align="left">fiber protein</td>
+</tr>
+<!-- End Table Row -->
+
+<!-- Print The Table Row -->
+<tr class="alternate_table_row_1">
+<td align="right">22,649</td><!-- Position -->
+<td align="center">A&rarr;G</td><!-- Cell Mutation -->
+<td align="right">100%</td><td align="right">100%</td><td align="right"></td><td align="right"></td>
+<td align="center">F180L&nbsp;(<font class="mutation_in_codon">T</font>TC&rarr;<font class="mutation_in_codon">C</font>TC)&nbsp;</td>
+<td align="center"><i>CPJG_00044</i>&nbsp;&larr;</td>
+<td align="left">fiber protein</td>
+</tr>
+<!-- End Table Row -->
+
+<!-- Print The Table Row -->
+<tr class="alternate_table_row_0">
+<td align="right">32,247</td><!-- Position -->
+<td align="center">+A</td><!-- Cell Mutation -->
+<td align="right">100%</td><td align="right">100%</td><td align="right">100%</td><td align="right">100%</td>
+<td align="center">intergenic&nbsp;(&#8209;80/+15)</td>
+<td align="center"><i>CPJG_00055</i>&nbsp;&larr;&nbsp;/&nbsp;&larr;&nbsp;<i>CPJG_01005</i></td>
+<td align="left">hypothetical protein/tRNA&#8209;Val</td>
+</tr>
+<!-- End Table Row -->
+
+<!-- Print The Table Row -->
+<tr class="alternate_table_row_1">
+<td align="right">70,018</td><!-- Position -->
+<td align="center">C&rarr;T</td><!-- Cell Mutation -->
+<td align="right"></td><td align="right"></td><td align="right"></td><td align="right">100%</td>
+<td align="center">A9A&nbsp;(GC<font class="mutation_in_codon">G</font>&rarr;GC<font class="mutation_in_codon">A</font>)&nbsp;</td>
+<td align="center"><i>CPJG_00112</i>&nbsp;&larr;</td>
+<td align="left">hypothetical protein</td>
+</tr>
+<!-- End Table Row -->
+
+<!-- Print The Table Row -->
+<tr class="alternate_table_row_0">
+<td align="right">86,483</td><!-- Position -->
+<td align="center">A&rarr;G</td><!-- Cell Mutation -->
+<td align="right"></td><td align="right"></td><td align="right"></td><td align="right">100%</td>
+<td align="center">Y239C&nbsp;(T<font class="mutation_in_codon">A</font>T&rarr;T<font class="mutation_in_codon">G</font>T)&nbsp;</td>
+<td align="center"><i>CPJG_00133</i>&nbsp;&rarr;</td>
+<td align="left">hypothetical protein</td>
+</tr>
+<!-- End Table Row -->
+
+<!-- Print The Table Row -->
+<tr class="alternate_table_row_1">
+<td align="right">121,181</td><!-- Position -->
+<td align="center">2&nbsp;bp&rarr;TT</td><!-- Cell Mutation -->
+<td align="right"></td><td align="right"></td><td align="right"></td><td align="right">100%</td>
+<td align="center">coding&nbsp;(97&#8209;98/252&nbsp;nt)</td>
+<td align="center"><i>CPJG_00192</i>&nbsp;&larr;</td>
+<td align="left">hypothetical protein</td>
+</tr>
+<!-- End Table Row -->
+
+<!-- Print The Table Row -->
+<tr class="alternate_table_row_0">
+<td align="right">123,986</td><!-- Position -->
+<td align="center">T&rarr;A</td><!-- Cell Mutation -->
+<td align="right">100%</td><td align="right">100%</td><td align="right"></td><td align="right">100%</td>
+<td align="center">K340*&nbsp;(<font class="mutation_in_codon">A</font>AA&rarr;<font class="mutation_in_codon">T</font>AA)&nbsp;</td>
+<td align="center"><i>CPJG_00196</i>&nbsp;&larr;</td>
+<td align="left">hypothetical protein</td>
+</tr>
+<!-- End Table Row -->
+<tr>
+<th>position</th>
+<th>mutation</th>
+<th>V03N3S2</th>
+<th>V05N2S2</th>
+<th>V05N3S1</th>
+<th>V21N2S3</th>
+<th>annotation</th>
+<th>gene</th>
+<th width="100%">description</th>
+</tr>
+
+
+<!-- Print The Table Row -->
+<tr class="alternate_table_row_1">
+<td align="right">124,789</td><!-- Position -->
+<td align="center">&Delta;227&nbsp;bp</td><!-- Cell Mutation -->
+<td align="right">100%</td><td align="right">100%</td><td align="right"></td><td align="right">100%</td>
+<td align="center"></td>
+<td align="center"><i>[CPJG_00196]</i>&#8211;<i>[CPJG_00197]</i></td>
+<td align="left"><i>[CPJG_00196], [CPJG_00197]</i></td>
+</tr>
+<!-- End Table Row -->
+
+<!-- Print The Table Row -->
+<tr class="alternate_table_row_0">
+<td align="right">142,460</td><!-- Position -->
+<td align="center">T&rarr;C</td><!-- Cell Mutation -->
+<td align="right"></td><td align="right"></td><td align="right"></td><td align="right">100%</td>
+<td align="center">N315D&nbsp;(<font class="mutation_in_codon">A</font>AT&rarr;<font class="mutation_in_codon">G</font>AT)&nbsp;</td>
+<td align="center"><i>CPJG_00206</i>&nbsp;&larr;</td>
+<td align="left">hypothetical protein</td>
+</tr>
+<!-- End Table Row -->
+
+<!-- Print The Table Row -->
+<tr class="alternate_table_row_1">
+<td align="right">156,972</td><!-- Position -->
+<td align="center">G&rarr;A</td><!-- Cell Mutation -->
+<td align="right"></td><td align="right"></td><td align="right">100%</td><td align="right"></td>
+<td align="center">S3860L&nbsp;(T<font class="mutation_in_codon">C</font>A&rarr;T<font class="mutation_in_codon">T</font>A)&nbsp;</td>
+<td align="center"><i>CPJG_00209</i>&nbsp;&larr;</td>
+<td align="left">hypothetical protein</td>
+</tr>
+<!-- End Table Row -->
+
+<!-- Print The Table Row -->
+<tr class="alternate_table_row_0">
+<td align="right">158,175</td><!-- Position -->
+<td align="center">A&rarr;C</td><!-- Cell Mutation -->
+<td align="right"></td><td align="right"></td><td align="right"></td><td align="right">100%</td>
+<td align="center">V3459G&nbsp;(G<font class="mutation_in_codon">T</font>T&rarr;G<font class="mutation_in_codon">G</font>T)&nbsp;</td>
+<td align="center"><i>CPJG_00209</i>&nbsp;&larr;</td>
+<td align="left">hypothetical protein</td>
+</tr>
+<!-- End Table Row -->
+</table></body></html>

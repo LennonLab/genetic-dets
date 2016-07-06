@@ -1,0 +1,232 @@
+Predicted mutations,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+position,mutation,01N2S3.g,01N3S3.g,01N5S4.g,01P3S1.g,01P4S5.g,01P5S1.g,03N1S1.g,03N2S5.g,03N3S2.g,03N3S4.g,03N5S2.g,03P2S4.g,03P3S5.g,03P5S5.g,05N2S5.g,05N3S3.g,05P2S1.g,05P2S2.g,05P3S1.g,05P4S4.g,05P5S4.g,12P2S5.g,12P3S4.g,12P4S2.g,16N5S4.g,16P3S2.g,16P5S2.g,19N3S4.g,19P3S4.g,19P5S2.g,21N2S3.g,21N3S2.g,21P2S4.g,21P3S4.g,21P4S2.g,21P5S1.g,annotation,gene,description
+1,"?2,366,975 bp",,,,,,,100%,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,dnaN–thrC,2583 genes 
+"12,864",C?G,,,,,,,,,,,,,,,,,,,,,,,,,,,,,100%,,,,,?,,,A100G (GCT?GGT) ,ftsY ?,"Signal recognition particle GTPase, FtsY"
+"101,693",C?T,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,100%,?,,,D237N (GAC?AAC) ,SynWH7803_0099 ?,hypothetical protein
+"102,841",G?A,,,,,,,,,,,,,,,,,,,,,,,,,100%,,,100%,,,,,,?,,,intergenic (+21/?38),SynWH7803_0101 ? / ? SynWH7803_0102,hypothetical protein/glucose?1?phosphate thymidylyltransferase
+"102,850",C?T,,,,,,,,,,,,,,,,,,,,100%,,,,,,,,,,,,,,?,,,intergenic (+30/?29),SynWH7803_0101 ? / ? SynWH7803_0102,hypothetical protein/glucose?1?phosphate thymidylyltransferase
+"103,283",C?A,,,,,,,,,,,,,,100%,,100%,,,,,,,100%,,,,,,,,100%,100%,,,,,F135L (TTC?TTA) ,SynWH7803_0102 ?,glucose?1?phosphate thymidylyltransferase
+"103,376",C?T,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,100%,,,,P166P (CCC?CCT) ,SynWH7803_0102 ?,glucose?1?phosphate thymidylyltransferase
+"103,845",A?T,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,100%,,,,Q12H (CAA?CAT) ,rfbC ?,"dTDP?4?dehydrorhamnose 3,5?epimerase"
+"103,909",G?A,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,100%,,,,,,,E34K (GAG?AAG) ,rfbC ?,"dTDP?4?dehydrorhamnose 3,5?epimerase"
+"104,094",C?T,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,100%,,,,?,,,A95A (GCC?GCT) ,rfbC ?,"dTDP?4?dehydrorhamnose 3,5?epimerase"
+position,mutation,01N2S3.g,01N3S3.g,01N5S4.g,01P3S1.g,01P4S5.g,01P5S1.g,03N1S1.g,03N2S5.g,03N3S2.g,03N3S4.g,03N5S2.g,03P2S4.g,03P3S5.g,03P5S5.g,05N2S5.g,05N3S3.g,05P2S1.g,05P2S2.g,05P3S1.g,05P4S4.g,05P5S4.g,12P2S5.g,12P3S4.g,12P4S2.g,16N5S4.g,16P3S2.g,16P5S2.g,19N3S4.g,19P3S4.g,19P5S2.g,21N2S3.g,21N3S2.g,21P2S4.g,21P3S4.g,21P4S2.g,21P5S1.g,annotation,gene,description
+"104,119",C?T,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,100%,?,,,R104C (CGC?TGC) ,rfbC ?,"dTDP?4?dehydrorhamnose 3,5?epimerase"
+"104,881",?42 bp,,,,,,,,,,,,?,,,,,,,,,,,100%,,,,,,,,,,,?,,,coding (458?499/888 nt),rfbD ?,putative dTDP?4?dehydrorhamnose reductase
+"104,891",?1 bp,,,,,,,,,,,,?,,,,,,,,,,,?,,,,,,,,,,,?,,100%,coding (468/888 nt),rfbD ?,putative dTDP?4?dehydrorhamnose reductase
+"104,894",C?T,,,,,,,,,,,,?,,,,,,,,,,,?,?,,100%,,,,,,,100%,?,100%,,G157G (GGC?GGT) ,rfbD ?,putative dTDP?4?dehydrorhamnose reductase
+"104,895",G?T,,,,,,,,,,,,?,,,,,,,,,,,?,,,,,,,,,,,?,,100%,A158S (GCG?TCG) ,rfbD ?,putative dTDP?4?dehydrorhamnose reductase
+"104,908",A?T,,,,,,,,,,,,?,,,,,,,,,,,?,,,,,,,,,,100%,?,,,N162I (AAC?ATC) ,rfbD ?,putative dTDP?4?dehydrorhamnose reductase
+"106,218",G?A,,,,,,,,,,,100%,,,,,,,,,,,,,,,,,,,,,,,?,,,W305* (TGG?TGA) ,SynWH7803_0105 ?,sugar transferase
+"106,237",G?A,,,,,,,,,,,,,,,,,100%,,,,,,,,,,,,,,,,,?,,,V312I (GTC?ATC) ,SynWH7803_0105 ?,sugar transferase
+"152,770",?1 bp,,,100%,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,?,,,coding (626/744 nt),SynWH7803_0136 ?,"ABC?type polysaccharide/polyol phosphate transport system, ATPase component"
+"154,970",?1 bp,,100%,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,?,,,coding (1411/1596 nt),SynWH7803_0139 ?,glycosyl transferase family protein
+position,mutation,01N2S3.g,01N3S3.g,01N5S4.g,01P3S1.g,01P4S5.g,01P5S1.g,03N1S1.g,03N2S5.g,03N3S2.g,03N3S4.g,03N5S2.g,03P2S4.g,03P3S5.g,03P5S5.g,05N2S5.g,05N3S3.g,05P2S1.g,05P2S2.g,05P3S1.g,05P4S4.g,05P5S4.g,12P2S5.g,12P3S4.g,12P4S2.g,16N5S4.g,16P3S2.g,16P5S2.g,19N3S4.g,19P3S4.g,19P5S2.g,21N2S3.g,21N3S2.g,21P2S4.g,21P3S4.g,21P4S2.g,21P5S1.g,annotation,gene,description
+"157,239",2 bp?AC,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,?,100%,,coding (118?119/981 nt),SynWH7803_0140 ?,glycosyl transferase family protein
+"163,807",G?T,,,,,,,,,,,100%,,,,,,,,,,,,,,,,,,,,,,,,,,I305I (ATC?ATA) ,miaA ?,tRNA delta(2)?isopentenylpyrophosphate transferase
+"185,296",?1 bp,,,,,,,,,,,,,,,,,,,,,,,,,,,,100%,,,,,,,,,coding (882/1506 nt),xylB ?,xylulose kinase
+"209,236",G?A,,,100%,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,?,,,P171L (CCC?CTC) ,SynWH7803_0191 ?,hypothetical protein
+"239,024",G?T,,,,,,,,,,,,,,,,,,,100%,,,,,,,,,,,,,,,?,,,R166L (CGC?CTC) ,SynWH7803_0218 ?,glycosyl transferase family protein
+"239,739",A?G,,,,,,,,,100%,,,,,,,,,,,,,,,,,,,,,,,,,,,,L340P (CTT?CCT) ,SynWH7803_0219 ?,hypothetical protein
+"239,935",G?T,,,,,,,,,,100%,,,,,,,,,,,,,,,,,,,,,,,,?,,,H275N (CAC?AAC) ,SynWH7803_0219 ?,hypothetical protein
+"240,165",C?A,,,,,,,,,,,,,,,,,,,,,,,100%,,,,,,,,,,,?,,,C198F (TGC?TTC) ,SynWH7803_0219 ?,hypothetical protein
+"240,454",C?A,,,,,,,,,,,,,,,,,,,,,,,,,,,,100%,,,,,,,,,E102* (GAA?TAA) ,SynWH7803_0219 ?,hypothetical protein
+"240,719",G?C,,,,,,,,,,,,,,,,,,,,,,,,,100%,,,,,,,,,?,,,Y13* (TAC?TAG) ,SynWH7803_0219 ?,hypothetical protein
+position,mutation,01N2S3.g,01N3S3.g,01N5S4.g,01P3S1.g,01P4S5.g,01P5S1.g,03N1S1.g,03N2S5.g,03N3S2.g,03N3S4.g,03N5S2.g,03P2S4.g,03P3S5.g,03P5S5.g,05N2S5.g,05N3S3.g,05P2S1.g,05P2S2.g,05P3S1.g,05P4S4.g,05P5S4.g,12P2S5.g,12P3S4.g,12P4S2.g,16N5S4.g,16P3S2.g,16P5S2.g,19N3S4.g,19P3S4.g,19P5S2.g,21N2S3.g,21N3S2.g,21P2S4.g,21P3S4.g,21P4S2.g,21P5S1.g,annotation,gene,description
+"256,217",C?A,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,100%,,P58T (CCG?ACG) ,SynWH7803_0232 ?,hypothetical protein
+"284,356",A?G,,,,,,,,,,,,100%,,,,,,,,,,,,,,,,,,,,,,?,,,Y333H (TAT?CAT) ,SynWH7803_0260 ?,ABC transporter ATPase/permease
+"337,494",G?T,,,,,,,,,,,,,,,,,,,,100%,,,,,,,,,,,,,,?,,,G15V (GGT?GTT) ,SynWH7803_0311 ?,alpha?glucosidase
+"340,700",C?A,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,100%,,,R4S (CGC?AGC) ,psbH ?,photosystem II reaction center protein H
+"414,594",?1 bp,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,?,,100%,intergenic (?85/?116),SynWH7803_0389 ? / ? SynWH7803_0390,hypothetical protein/hypothetical protein
+"451,666",A?G,,100%,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,I201V (ATC?GTC) ,SynWH7803_0438 ?,HAD family phosphatase
+"482,235",2 bp?CC,,,,,,,,,,,,100%,,,,,,,,,,,,,,,,,,,,,,?,,,coding (737?738/960 nt),SynWH7803_0470 ?,oxidoreductase
+"490,652",G?T,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,100%,,,P190T (CCG?ACG) ,pebB ?,phycoerythrobilin:ferredoxin oxidoreductase
+"492,222",C?T,,,100%,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,?,,,V109M (GTG?ATG) ,SynWH7803_0483 ?,hypothetical protein
+"498,871",G?A,,,,,,,,,,,,100%,,,,,,,,,,,,,,,,,,,,,,?,,,A231T (GCT?ACT) ,cpeY ?,bilin biosynthesis protein CpeY
+position,mutation,01N2S3.g,01N3S3.g,01N5S4.g,01P3S1.g,01P4S5.g,01P5S1.g,03N1S1.g,03N2S5.g,03N3S2.g,03N3S4.g,03N5S2.g,03P2S4.g,03P3S5.g,03P5S5.g,05N2S5.g,05N3S3.g,05P2S1.g,05P2S2.g,05P3S1.g,05P4S4.g,05P5S4.g,12P2S5.g,12P3S4.g,12P4S2.g,16N5S4.g,16P3S2.g,16P5S2.g,19N3S4.g,19P3S4.g,19P5S2.g,21N2S3.g,21N3S2.g,21P2S4.g,21P3S4.g,21P4S2.g,21P5S1.g,annotation,gene,description
+"504,192",G?A,,,,,,,,,,,,,,100%,,,,,,,,,,,,,,,,,,,,,,,I96I (ATC?ATT) ,cpeS ?,phycoerythrin linker gene region
+"534,877",G?A,?,?,100%,100%,?,?,,?,?,?,?,?,?,?,?,?,?,?,?,100%,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,noncoding (339/1497 nt),RNA_16 ?,16S ribosomal RNA
+"535,535",G?C,?,?,?,100%,?,100%,,?,?,?,?,?,?,?,?,100%,?,?,100%,100%,100%,100%,100%,?,?,?,?,100%,100%,100%,?,?,?,?,?,?,noncoding (997/1497 nt),RNA_16 ?,16S ribosomal RNA
+"535,604",T?C,?,?,100%,100%,?,100%,,?,?,?,?,,?,?,?,100%,?,?,?,100%,?,100%,100%,?,?,?,?,100%,100%,100%,,,,?,?,,noncoding (1066/1497 nt),RNA_16 ?,16S ribosomal RNA
+"565,198",+C,,,,,,,,,100%,,,,,,,,,,,,,,,,,,,,,,,,,?,,,coding (4/1719 nt),SynWH7803_0558 ?,hypothetical protein
+"568,385",A?G,,,,,,,,,,,,,,,,,100%,,,,,,,,,,,,,,,,,?,,,L150L (CTA?CTG) ,SynWH7803_0562 ?,hypothetical protein
+"740,859",T?G,100%,100%,100%,100%,100%,100%,,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,K14Q (AAG?CAG) ,SynWH7803_0756 ?,glycogen branching protein
+"758,238",G?C,,100%,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,?,,,L34V (CTC?GTC) ,prlC ?,oligopeptidase A
+"771,126",2 bp?TG,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,100%,,coding (855?856/1077 nt),psbA ?,photosystem II protein D1
+"771,129",2 bp?AC,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,100%,,coding (858?859/1077 nt),psbA ?,photosystem II protein D1
+position,mutation,01N2S3.g,01N3S3.g,01N5S4.g,01P3S1.g,01P4S5.g,01P5S1.g,03N1S1.g,03N2S5.g,03N3S2.g,03N3S4.g,03N5S2.g,03P2S4.g,03P3S5.g,03P5S5.g,05N2S5.g,05N3S3.g,05P2S1.g,05P2S2.g,05P3S1.g,05P4S4.g,05P5S4.g,12P2S5.g,12P3S4.g,12P4S2.g,16N5S4.g,16P3S2.g,16P5S2.g,19N3S4.g,19P3S4.g,19P5S2.g,21N2S3.g,21N3S2.g,21P2S4.g,21P3S4.g,21P4S2.g,21P5S1.g,annotation,gene,description
+"771,136",A?G,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,100%,,I289V (ATC?GTA) ,psbA ?,photosystem II protein D1
+"771,138",C?A,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,100%,,I289V (ATC?GTA) ,psbA ?,photosystem II protein D1
+"771,150",G?A,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,100%,,A293A (GCG?GCA) ,psbA ?,photosystem II protein D1
+"771,183",2 bp?TA,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,100%,,coding (912?913/1077 nt),psbA ?,photosystem II protein D1
+"771,186",2 bp?CG,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,100%,,coding (915?916/1077 nt),psbA ?,photosystem II protein D1
+"771,189",G?T,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,100%,,L306L (CTG?CTT) ,psbA ?,photosystem II protein D1
+"771,193",3 bp?AGT,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,100%,,coding (922?924/1077 nt),psbA ?,photosystem II protein D1
+"771,201",4 bp?TAAA,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,100%,,coding (930?933/1077 nt),psbA ?,photosystem II protein D1
+"771,207",2 bp?TA,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,100%,,coding (936?937/1077 nt),psbA ?,photosystem II protein D1
+"771,210",G?C,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,100%,,L313L (CTG?CTC) ,psbA ?,photosystem II protein D1
+position,mutation,01N2S3.g,01N3S3.g,01N5S4.g,01P3S1.g,01P4S5.g,01P5S1.g,03N1S1.g,03N2S5.g,03N3S2.g,03N3S4.g,03N5S2.g,03P2S4.g,03P3S5.g,03P5S5.g,05N2S5.g,05N3S3.g,05P2S1.g,05P2S2.g,05P3S1.g,05P4S4.g,05P5S4.g,12P2S5.g,12P3S4.g,12P4S2.g,16N5S4.g,16P3S2.g,16P5S2.g,19N3S4.g,19P3S4.g,19P5S2.g,21N2S3.g,21N3S2.g,21P2S4.g,21P3S4.g,21P4S2.g,21P5S1.g,annotation,gene,description
+"771,222",T?A,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,100%,,A317A (GCT?GCA) ,psbA ?,photosystem II protein D1
+"771,225",T?C,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,100%,,D318D (GAT?GAC) ,psbA ?,photosystem II protein D1
+"771,228",G?T,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,100%,,V319V (GTG?GTT) ,psbA ?,photosystem II protein D1
+"771,231",G?C,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,100%,,L320L (CTG?CTC) ,psbA ?,photosystem II protein D1
+"771,237",C?T,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,100%,,R322R (CGC?CGT) ,psbA ?,photosystem II protein D1
+"771,240",4 bp?TGGT,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,100%,,coding (969?972/1077 nt),psbA ?,photosystem II protein D1
+"771,246",C?T,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,100%,,L325L (CTC?CTT) ,psbA ?,photosystem II protein D1
+"771,249",A?C,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,100%,,G326G (GGA?GGC) ,psbA ?,photosystem II protein D1
+"771,273",C?T,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,?,100%,,N334N (AAC?AAT) ,psbA ?,photosystem II protein D1
+"771,288",C?T,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,?,100%,,P339P (CCC?CCT) ,psbA ?,photosystem II protein D1
+position,mutation,01N2S3.g,01N3S3.g,01N5S4.g,01P3S1.g,01P4S5.g,01P5S1.g,03N1S1.g,03N2S5.g,03N3S2.g,03N3S4.g,03N5S2.g,03P2S4.g,03P3S5.g,03P5S5.g,05N2S5.g,05N3S3.g,05P2S1.g,05P2S2.g,05P3S1.g,05P4S4.g,05P5S4.g,12P2S5.g,12P3S4.g,12P4S2.g,16N5S4.g,16P3S2.g,16P5S2.g,19N3S4.g,19P3S4.g,19P5S2.g,21N2S3.g,21N3S2.g,21P2S4.g,21P3S4.g,21P4S2.g,21P5S1.g,annotation,gene,description
+"771,291",C?T,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,?,100%,,L340L (CTC?CTT) ,psbA ?,photosystem II protein D1
+"771,297",G?T,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,?,100%,,L342L (CTG?CTT) ,psbA ?,photosystem II protein D1
+"771,303",2 bp?TG,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,?,100%,,coding (1032?1033/1077 nt),psbA ?,photosystem II protein D1
+"821,170",G?A,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,100%,,R602W (CGG?TGG) ,ggt ?,gamma?glutamyltranspeptidase
+"917,144",G?T,100%,,,100%,,,,,,,100%,,,,,,100%,,,,,,,,,,,,,,,,,,,,H41N (CAC?AAC) ,hupE ?,hydrogenase accessory membrane protein
+"917,611",C?T,,,,100%,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,?,,,intergenic (?12/?91),SynWH7803_0995 ? / ? SynWH7803_0996,hypothetical protein/hypothetical protein
+"934,026",C?G,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,100%,,,?,,,L338V (CTC?GTC) ,SynWH7803_1018 ?,hypothetical protein
+"951,302",G?T,,,,,,,,,,,,,,,,,,,100%,,,,,,,,,,,,,,,?,,,D217Y (GAC?TAC) ,comB ?,2?phosphosulfolactate phosphatase
+"1,019,327",?1 bp,,,,100%,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,?,,,coding (777/933 nt),SynWH7803_1114 ?,kinase
+"1,019,857",C?A,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,?,,100%,P37T (CCG?ACG) ,ftsH ?,cell division protein FtsH
+position,mutation,01N2S3.g,01N3S3.g,01N5S4.g,01P3S1.g,01P4S5.g,01P5S1.g,03N1S1.g,03N2S5.g,03N3S2.g,03N3S4.g,03N5S2.g,03P2S4.g,03P3S5.g,03P5S5.g,05N2S5.g,05N3S3.g,05P2S1.g,05P2S2.g,05P3S1.g,05P4S4.g,05P5S4.g,12P2S5.g,12P3S4.g,12P4S2.g,16N5S4.g,16P3S2.g,16P5S2.g,19N3S4.g,19P3S4.g,19P5S2.g,21N2S3.g,21N3S2.g,21P2S4.g,21P3S4.g,21P4S2.g,21P5S1.g,annotation,gene,description
+"1,020,535",G?T,,,,,,,,,,,,,,,,,,,,100%,,,,,,,,,,,,,,?,,,G263C (GGC?TGC) ,ftsH ?,cell division protein FtsH
+"1,061,867",C?T,,,,100%,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,G200E (GGG?GAG) ,SynWH7803_1161 ?,hypothetical protein
+"1,062,902",A?C,100%,100%,100%,100%,100%,100%,,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,F26C (TTT?TGT) ,fur ?,ferric uptake regulator family protein
+"1,135,395",G?T,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,100%,,,?,,,S5Y (TCT?TAT) ,pstA ?,phosphate ABC transporter permease
+"1,175,012",G?A,,,,,,,,,,,,,,,,,,,,100%,,,,,,,,,,,,,,?,,,S24S (TCC?TCT) ,SynWH7803_1279 ?,hypothetical protein
+"1,268,916",C?T,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,100%,,,,S44N (AGT?AAT) ,SynWH7803_1381 ?,cation efflux family protein
+"1,268,922",C?G,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,100%,,,,R42P (CGG?CCG) ,SynWH7803_1381 ?,cation efflux family protein
+"1,271,925",?1 bp,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,100%,,,?,,,coding (1105/1161 nt),SynWH7803_1386 ?,two?component system sensor histidine kinase
+"1,272,000",C?A,,,,,,,,,,,,,,,,100%,,,,,,,,,,,,,,,,100%,,?,,,G344* (GGA?TGA) ,SynWH7803_1386 ?,two?component system sensor histidine kinase
+"1,272,008",C?A,,,,,,,,,,,,,,,,100%,,,,,,,,,,,,,,,,100%,,,,,S341I (AGT?ATT) ,SynWH7803_1386 ?,two?component system sensor histidine kinase
+position,mutation,01N2S3.g,01N3S3.g,01N5S4.g,01P3S1.g,01P4S5.g,01P5S1.g,03N1S1.g,03N2S5.g,03N3S2.g,03N3S4.g,03N5S2.g,03P2S4.g,03P3S5.g,03P5S5.g,05N2S5.g,05N3S3.g,05P2S1.g,05P2S2.g,05P3S1.g,05P4S4.g,05P5S4.g,12P2S5.g,12P3S4.g,12P4S2.g,16N5S4.g,16P3S2.g,16P5S2.g,19N3S4.g,19P3S4.g,19P5S2.g,21N2S3.g,21N3S2.g,21P2S4.g,21P3S4.g,21P4S2.g,21P5S1.g,annotation,gene,description
+"1,272,988",?1 bp,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,?,100%,,coding (42/1161 nt),SynWH7803_1386 ?,two?component system sensor histidine kinase
+"1,328,915",+T,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,100%,,coding (205/636 nt),SynWH7803_1446 ?,hypothetical protein
+"1,372,875",C?A,,,,,,,,,,,100%,,,,,,,,,,,,,,,,,,,,,,,,,,intergenic (?79/?38),SynWH7803_1498 ? / ? RNA_30,hypothetical protein/tRNA?Ser
+"1,379,294",A?C,,,,,,,,,,100%,,,,,,,,,,,,,,,,,,,,,,,,?,,,R331R (CGA?CGC) ,recC ?,exodeoxyribonuclease V subunit gamma
+"1,407,417",C?G,,,,,,,,,,,,,,,,,,,100%,,,,,,,,,,,,,,,,,,A6P (GCC?CCC) ,uppS ?,undecaprenyl pyrophosphate synthase
+"1,500,963",C?T,,,,,,,,,,,,,,,,,,,100%,,,,,,,,,,,,,,,?,,,A84T (GCG?ACG) ,pntAA ?,NAD/NADP transhydrogenase subunit alpha part 1
+"1,565,247",C?A,,,,,100%,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,L490L (CTG?CTT) ,SynWH7803_1711 ?,protein kinase
+"1,618,650",G?C,,,,,,,,,,,,,,,,,,,,,,,,,100%,,,,,,,,,?,,,L150L (CTG?CTC) ,ilvC ?,ketol?acid reductoisomerase
+"1,640,030",G?T,,,,,,,,,,,,,,,,,,?,,,,,,,,,,,,,,,100%,,,,P169T (CCG?ACG) ,SynWH7803_1789 ?,hypothetical protein
+"1,703,838",G?A,,,,,,,,,,,100%,?,,,,,,,,,,,,,,,,,,,,,,,,,G163S (GGT?AGT) ,SynWH7803_1859 ?,glycosyltransferase family protein
+position,mutation,01N2S3.g,01N3S3.g,01N5S4.g,01P3S1.g,01P4S5.g,01P5S1.g,03N1S1.g,03N2S5.g,03N3S2.g,03N3S4.g,03N5S2.g,03P2S4.g,03P3S5.g,03P5S5.g,05N2S5.g,05N3S3.g,05P2S1.g,05P2S2.g,05P3S1.g,05P4S4.g,05P5S4.g,12P2S5.g,12P3S4.g,12P4S2.g,16N5S4.g,16P3S2.g,16P5S2.g,19N3S4.g,19P3S4.g,19P5S2.g,21N2S3.g,21N3S2.g,21P2S4.g,21P3S4.g,21P4S2.g,21P5S1.g,annotation,gene,description
+"1,723,445",C?A,,,,,,,,,,,100%,,,,,,,,,,,,,,,,,,,,,,,?,,,V70L (GTG?TTG) ,SynWH7803_1882 ?,hypothetical protein
+"1,760,010",G?C,,,100%,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,L23L (CTG?CTC) ,SynWH7803_1923 ?,hypothetical protein
+"1,891,124",C?T,,,,,,,,,,,,,,,,,,,,,,,100%,,,,,,,,,,,?,,,D20N (GAC?AAC) ,tatD ?,Mg?dependent DNase
+"1,922,186",G?T,,,,,,,,,,,,,,,,,,,,,,,,,,,,,100%,,,,,?,,,D71Y (GAC?TAC) ,SynWH7803_2093 ?,hypothetical protein
+"1,945,019",G?A,,,,,,100%,,,,,,,,,,,,,,,,,,,,,,,,,,,,?,,,L52F (CTC?TTC) ,SynWH7803_2122 ?,hypothetical protein
+"2,006,492",G?A,,,,,,,,,,,,,100%,,,,,,,,,,,,,,,,,,,,,,,,E529E (GAG?GAA) ,uup ?,ABC transporter ATPase
+"2,019,461",G?A,?,?,?,?,?,?,,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,,100%,?,?,100%,?,noncoding (1473/1497 nt),RNA_51 ?,16S ribosomal RNA
+"2,019,464",G?C,?,?,?,?,?,?,,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,,100%,?,?,100%,?,noncoding (1470/1497 nt),RNA_51 ?,16S ribosomal RNA
+"2,019,467",2 bp?GG,?,?,?,?,?,?,,?,?,?,100%,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,100%,100%,100%,?,100%,?,noncoding (1466?1467/1497 nt),RNA_51 ?,16S ribosomal RNA
+"2,019,473",2 bp?CC,?,?,?,?,?,?,,?,?,?,100%,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,100%,100%,100%,?,100%,?,noncoding (1460?1461/1497 nt),RNA_51 ?,16S ribosomal RNA
+position,mutation,01N2S3.g,01N3S3.g,01N5S4.g,01P3S1.g,01P4S5.g,01P5S1.g,03N1S1.g,03N2S5.g,03N3S2.g,03N3S4.g,03N5S2.g,03P2S4.g,03P3S5.g,03P5S5.g,05N2S5.g,05N3S3.g,05P2S1.g,05P2S2.g,05P3S1.g,05P4S4.g,05P5S4.g,12P2S5.g,12P3S4.g,12P4S2.g,16N5S4.g,16P3S2.g,16P5S2.g,19N3S4.g,19P3S4.g,19P5S2.g,21N2S3.g,21N3S2.g,21P2S4.g,21P3S4.g,21P4S2.g,21P5S1.g,annotation,gene,description
+"2,019,477",C?G,?,?,?,?,?,?,,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,,100%,?,?,100%,?,noncoding (1457/1497 nt),RNA_51 ?,16S ribosomal RNA
+"2,019,480",C?T,?,?,?,?,?,?,,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,,100%,?,?,100%,?,noncoding (1454/1497 nt),RNA_51 ?,16S ribosomal RNA
+"2,019,509",C?G,?,?,?,?,?,?,,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,100%,100%,100%,?,100%,?,noncoding (1425/1497 nt),RNA_51 ?,16S ribosomal RNA
+"2,019,511",G?A,?,?,?,?,?,?,,?,?,?,100%,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,100%,,100%,?,100%,?,noncoding (1423/1497 nt),RNA_51 ?,16S ribosomal RNA
+"2,019,511",2 bp?AA,?,?,?,?,?,?,,?,?,?,,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,,100%,,?,,?,noncoding (1422?1423/1497 nt),RNA_51 ?,16S ribosomal RNA
+"2,019,514",C?A,?,?,?,?,?,?,,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,100%,100%,100%,?,100%,?,noncoding (1420/1497 nt),RNA_51 ?,16S ribosomal RNA
+"2,019,519",T?G,?,?,?,?,?,?,,?,?,?,100%,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,100%,100%,100%,?,100%,?,noncoding (1415/1497 nt),RNA_51 ?,16S ribosomal RNA
+"2,019,521",C?G,?,?,?,?,?,?,,?,?,?,100%,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,100%,100%,100%,?,100%,?,noncoding (1413/1497 nt),RNA_51 ?,16S ribosomal RNA
+"2,019,523",A?T,?,?,?,?,?,?,,?,?,?,100%,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,100%,,100%,?,,?,noncoding (1411/1497 nt),RNA_51 ?,16S ribosomal RNA
+"2,019,523",3 bp?TAA,?,?,?,?,?,?,,?,?,?,,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,,100%,,?,100%,?,noncoding (1409?1411/1497 nt),RNA_51 ?,16S ribosomal RNA
+position,mutation,01N2S3.g,01N3S3.g,01N5S4.g,01P3S1.g,01P4S5.g,01P5S1.g,03N1S1.g,03N2S5.g,03N3S2.g,03N3S4.g,03N5S2.g,03P2S4.g,03P3S5.g,03P5S5.g,05N2S5.g,05N3S3.g,05P2S1.g,05P2S2.g,05P3S1.g,05P4S4.g,05P5S4.g,12P2S5.g,12P3S4.g,12P4S2.g,16N5S4.g,16P3S2.g,16P5S2.g,19N3S4.g,19P3S4.g,19P5S2.g,21N2S3.g,21N3S2.g,21P2S4.g,21P3S4.g,21P4S2.g,21P5S1.g,annotation,gene,description
+"2,019,525",G?A,?,?,?,?,?,?,,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,,,100%,?,,?,noncoding (1409/1497 nt),RNA_51 ?,16S ribosomal RNA
+"2,019,528",C?G,?,?,?,?,?,?,,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,,100%,100%,?,100%,?,noncoding (1406/1497 nt),RNA_51 ?,16S ribosomal RNA
+"2,019,538",G?A,?,?,?,?,?,?,,?,?,?,100%,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,100%,100%,100%,?,100%,?,noncoding (1396/1497 nt),RNA_51 ?,16S ribosomal RNA
+"2,019,543",G?A,?,?,?,?,?,?,,?,?,?,100%,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,100%,100%,100%,?,100%,?,noncoding (1391/1497 nt),RNA_51 ?,16S ribosomal RNA
+"2,019,546",G?C,?,?,?,?,?,?,,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,,100%,,?,100%,?,noncoding (1388/1497 nt),RNA_51 ?,16S ribosomal RNA
+"2,019,551",2 bp?TA,?,?,?,?,?,?,,?,?,?,,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,,100%,,?,100%,?,noncoding (1382?1383/1497 nt),RNA_51 ?,16S ribosomal RNA
+"2,019,552",G?A,?,?,?,?,?,?,,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,,,100%,?,,?,noncoding (1382/1497 nt),RNA_51 ?,16S ribosomal RNA
+"2,019,557",G?T,?,?,?,?,?,?,,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,,100%,,?,100%,?,noncoding (1377/1497 nt),RNA_51 ?,16S ribosomal RNA
+"2,019,560",C?T,?,?,?,?,?,?,,?,?,?,100%,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,100%,100%,100%,?,100%,?,noncoding (1374/1497 nt),RNA_51 ?,16S ribosomal RNA
+"2,019,562",3 bp?CAT,?,?,?,?,?,?,,?,?,?,,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,100%,,,?,,?,noncoding (1370?1372/1497 nt),RNA_51 ?,16S ribosomal RNA
+position,mutation,01N2S3.g,01N3S3.g,01N5S4.g,01P3S1.g,01P4S5.g,01P5S1.g,03N1S1.g,03N2S5.g,03N3S2.g,03N3S4.g,03N5S2.g,03P2S4.g,03P3S5.g,03P5S5.g,05N2S5.g,05N3S3.g,05P2S1.g,05P2S2.g,05P3S1.g,05P4S4.g,05P5S4.g,12P2S5.g,12P3S4.g,12P4S2.g,16N5S4.g,16P3S2.g,16P5S2.g,19N3S4.g,19P3S4.g,19P5S2.g,21N2S3.g,21N3S2.g,21P2S4.g,21P3S4.g,21P4S2.g,21P5S1.g,annotation,gene,description
+"2,019,562",2 bp?CA,?,?,?,?,?,?,,?,?,?,,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,,100%,100%,?,100%,?,noncoding (1371?1372/1497 nt),RNA_51 ?,16S ribosomal RNA
+"2,019,563",G?A,?,?,?,?,?,?,,?,?,?,100%,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,,,,?,,?,noncoding (1371/1497 nt),RNA_51 ?,16S ribosomal RNA
+"2,019,567",A?C,,,,,,,,,,,?,?,,,,,,,,,,,,,,,,,,,,100%,,?,100%,?,noncoding (1367/1497 nt),RNA_51 ?,16S ribosomal RNA
+"2,019,571",T?C,100%,100%,100%,100%,100%,100%,,100%,100%,100%,100%,?,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,?,100%,100%,noncoding (1363/1497 nt),RNA_51 ?,16S ribosomal RNA
+"2,019,621",A?G,,,,,100%,,,,,,,,,,,,,,,,,,,,,,,,,,,,?,?,,?,noncoding (1313/1497 nt),RNA_51 ?,16S ribosomal RNA
+"2,019,623",T?C,,,,,100%,,,,,,,,,?,,,,,,,,,,,,,,,,,,,?,?,,?,noncoding (1311/1497 nt),RNA_51 ?,16S ribosomal RNA
+"2,019,626",G?T,,,,,,,,,,,100%,100%,,,,,,,,,,,,,,,,,,,,100%,100%,?,100%,100%,noncoding (1308/1497 nt),RNA_51 ?,16S ribosomal RNA
+"2,019,631",C?T,,,,,100%,100%,,,,,,,,,,,,,,,,,,,,,,,,,,,?,?,,?,noncoding (1303/1497 nt),RNA_51 ?,16S ribosomal RNA
+"2,019,633",T?C,,,,,100%,100%,,,,,,,,,,,,,,,,,,,,,,,,,,,?,?,,?,noncoding (1301/1497 nt),RNA_51 ?,16S ribosomal RNA
+"2,019,653",C?A,100%,100%,100%,,100%,100%,,100%,,,100%,100%,100%,,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,,100%,100%,100%,100%,100%,100%,100%,?,100%,100%,noncoding (1281/1497 nt),RNA_51 ?,16S ribosomal RNA
+position,mutation,01N2S3.g,01N3S3.g,01N5S4.g,01P3S1.g,01P4S5.g,01P5S1.g,03N1S1.g,03N2S5.g,03N3S2.g,03N3S4.g,03N5S2.g,03P2S4.g,03P3S5.g,03P5S5.g,05N2S5.g,05N3S3.g,05P2S1.g,05P2S2.g,05P3S1.g,05P4S4.g,05P5S4.g,12P2S5.g,12P3S4.g,12P4S2.g,16N5S4.g,16P3S2.g,16P5S2.g,19N3S4.g,19P3S4.g,19P5S2.g,21N2S3.g,21N3S2.g,21P2S4.g,21P3S4.g,21P4S2.g,21P5S1.g,annotation,gene,description
+"2,019,659",C?T,100%,100%,100%,100%,100%,100%,,,100%,100%,100%,100%,,100%,,100%,100%,,100%,,,,,100%,100%,,,,,100%,100%,,,?,,,noncoding (1275/1497 nt),RNA_51 ?,16S ribosomal RNA
+"2,019,661",T?G,100%,100%,100%,,100%,100%,,100%,,,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,,100%,100%,100%,100%,100%,100%,100%,?,100%,100%,noncoding (1273/1497 nt),RNA_51 ?,16S ribosomal RNA
+"2,019,664",G?T,100%,100%,100%,100%,100%,100%,,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,?,100%,100%,noncoding (1270/1497 nt),RNA_51 ?,16S ribosomal RNA
+"2,019,675",C?A,100%,100%,100%,100%,100%,100%,,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,?,100%,100%,noncoding (1259/1497 nt),RNA_51 ?,16S ribosomal RNA
+"2,019,678",A?C,100%,100%,100%,,,100%,,,,,100%,100%,100%,,100%,100%,100%,100%,,100%,100%,100%,100%,100%,100%,,100%,100%,100%,100%,100%,100%,100%,?,100%,100%,noncoding (1256/1497 nt),RNA_51 ?,16S ribosomal RNA
+"2,019,680",G?A,100%,100%,100%,100%,100%,100%,,,100%,100%,100%,100%,,100%,,100%,100%,,100%,100%,,,100%,100%,100%,,,,,100%,100%,,?,?,,,noncoding (1254/1497 nt),RNA_51 ?,16S ribosomal RNA
+"2,019,684",T?C,100%,100%,100%,100%,100%,100%,,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,?,100%,100%,noncoding (1250/1497 nt),RNA_51 ?,16S ribosomal RNA
+"2,019,686",A?G,,,,,,,,,,,100%,100%,,,,?,,?,?,,?,,,,,,,,?,,100%,100%,100%,?,100%,100%,noncoding (1248/1497 nt),RNA_51 ?,16S ribosomal RNA
+"2,019,690",2 bp?AC,,?,,,,,,,,,100%,?,,,,,,,,,,,,,,,,,,,100%,100%,100%,?,100%,100%,noncoding (1243?1244/1497 nt),RNA_51 ?,16S ribosomal RNA
+"2,019,693",C?A,100%,?,,,100%,100%,,,,?,100%,?,100%,?,100%,100%,100%,?,,100%,?,100%,100%,?,?,,?,100%,100%,100%,100%,100%,100%,?,100%,100%,noncoding (1241/1497 nt),RNA_51 ?,16S ribosomal RNA
+position,mutation,01N2S3.g,01N3S3.g,01N5S4.g,01P3S1.g,01P4S5.g,01P5S1.g,03N1S1.g,03N2S5.g,03N3S2.g,03N3S4.g,03N5S2.g,03P2S4.g,03P3S5.g,03P5S5.g,05N2S5.g,05N3S3.g,05P2S1.g,05P2S2.g,05P3S1.g,05P4S4.g,05P5S4.g,12P2S5.g,12P3S4.g,12P4S2.g,16N5S4.g,16P3S2.g,16P5S2.g,19N3S4.g,19P3S4.g,19P5S2.g,21N2S3.g,21N3S2.g,21P2S4.g,21P3S4.g,21P4S2.g,21P5S1.g,annotation,gene,description
+"2,019,695",A?C,100%,?,?,,,,,?,,,,?,?,?,,,,?,,?,,?,?,?,?,,?,?,?,?,,,?,?,,?,noncoding (1239/1497 nt),RNA_51 ?,16S ribosomal RNA
+"2,019,695",2 bp?CA,,?,,,,100%,,,,,,?,?,?,,100%,,?,,?,,?,,?,?,,?,,?,,,,?,?,,?,noncoding (1238?1239/1497 nt),RNA_51 ?,16S ribosomal RNA
+"2,019,696",C?T,?,?,?,,,,,?,,,,?,?,?,?,,,?,,?,,?,?,?,?,,?,?,?,?,100%,,?,?,,?,noncoding (1238/1497 nt),RNA_51 ?,16S ribosomal RNA
+"2,019,696",3 bp?TTC,,?,,,,,,,,,100%,?,?,?,,,,?,,?,,?,,?,?,,?,,?,,,,,?,,,noncoding (1236?1238/1497 nt),RNA_51 ?,16S ribosomal RNA
+"2,019,698",G?T,?,?,?,,,100%,,?,,,,?,?,?,?,100%,,?,,?,,?,?,?,?,,?,?,?,100%,,,?,?,,?,noncoding (1236/1497 nt),RNA_51 ?,16S ribosomal RNA
+"2,019,698",G?C,?,?,?,,,,,?,,,,?,?,?,?,,,?,,?,,?,?,?,?,,?,?,?,,100%,,?,?,,?,noncoding (1236/1497 nt),RNA_51 ?,16S ribosomal RNA
+"2,019,702",A?T,,?,?,100%,,,,,,,,?,?,?,?,,,?,?,?,100%,?,?,?,?,,?,,?,,,,?,?,,?,noncoding (1232/1497 nt),RNA_51 ?,16S ribosomal RNA
+"2,019,703",T?A,100%,?,?,,,100%,,?,,,100%,?,?,?,?,100%,,?,,?,,?,?,?,?,,?,?,?,100%,100%,,?,?,,?,noncoding (1231/1497 nt),RNA_51 ?,16S ribosomal RNA
+"2,019,703",+A,,?,,,,,,,,,,?,?,?,,,,?,,?,100%,?,,?,?,,?,,?,,,,,?,,,noncoding (1231/1497 nt),RNA_51 ?,16S ribosomal RNA
+"2,019,705",A?G,100%,?,?,,,100%,,?,,,100%,?,?,?,?,100%,,?,,?,,?,?,?,?,,?,?,?,100%,100%,,?,?,,?,noncoding (1229/1497 nt),RNA_51 ?,16S ribosomal RNA
+position,mutation,01N2S3.g,01N3S3.g,01N5S4.g,01P3S1.g,01P4S5.g,01P5S1.g,03N1S1.g,03N2S5.g,03N3S2.g,03N3S4.g,03N5S2.g,03P2S4.g,03P3S5.g,03P5S5.g,05N2S5.g,05N3S3.g,05P2S1.g,05P2S2.g,05P3S1.g,05P4S4.g,05P5S4.g,12P2S5.g,12P3S4.g,12P4S2.g,16N5S4.g,16P3S2.g,16P5S2.g,19N3S4.g,19P3S4.g,19P5S2.g,21N2S3.g,21N3S2.g,21P2S4.g,21P3S4.g,21P4S2.g,21P5S1.g,annotation,gene,description
+"2,019,707",A?G,,?,,,,,,,,,100%,?,?,?,,,,?,,?,,?,,?,?,,?,,?,,,,?,?,,?,noncoding (1227/1497 nt),RNA_51 ?,16S ribosomal RNA
+"2,019,709",2 bp?CC,,?,,,,,,,,,100%,?,?,?,,,,?,,?,,?,,?,?,,?,,?,,100%,,,?,,,noncoding (1224?1225/1497 nt),RNA_51 ?,16S ribosomal RNA
+"2,019,710",T?A,,?,?,100%,,,,,100%,100%,,?,?,?,?,,,?,?,?,100%,?,?,?,?,100%,?,,?,,,,?,?,,?,noncoding (1224/1497 nt),RNA_51 ?,16S ribosomal RNA
+"2,019,713",T?A,,?,?,100%,,,,,100%,100%,,?,?,?,?,,,?,?,?,100%,?,?,?,?,100%,?,?,?,,,,,?,,,noncoding (1221/1497 nt),RNA_51 ?,16S ribosomal RNA
+"2,019,714",3 bp?CCA,,?,,,,,,,,,100%,?,?,?,,,,?,,?,,?,,?,?,,?,,?,,100%,,,?,,,noncoding (1218?1220/1497 nt),RNA_51 ?,16S ribosomal RNA
+"2,019,714",2 bp?CC,,?,,,,,,,,,,?,?,?,,,,?,,?,,?,,?,?,,?,,?,,,100%,,?,100%,100%,noncoding (1219?1220/1497 nt),RNA_51 ?,16S ribosomal RNA
+"2,019,715",G?C,,?,?,100%,,,,?,100%,100%,,?,?,?,?,,,?,?,?,100%,?,?,?,?,100%,?,,?,,,,,?,,,noncoding (1219/1497 nt),RNA_51 ?,16S ribosomal RNA
+"2,019,716",T?G,100%,?,?,,,100%,,?,,,,?,?,?,?,100%,100%,?,,?,,?,?,?,?,,?,?,?,100%,,,?,?,,?,noncoding (1218/1497 nt),RNA_51 ?,16S ribosomal RNA
+"2,019,717",C?T,,?,?,100%,,,,,100%,100%,,?,?,?,?,,,?,?,?,100%,?,?,?,?,100%,?,,?,,,,,?,,,noncoding (1217/1497 nt),RNA_51 ?,16S ribosomal RNA
+"2,019,718",C?A,,?,,,,,,,,,100%,?,?,?,,,,?,,?,,?,,?,?,,?,,?,,100%,,?,?,,?,noncoding (1216/1497 nt),RNA_51 ?,16S ribosomal RNA
+position,mutation,01N2S3.g,01N3S3.g,01N5S4.g,01P3S1.g,01P4S5.g,01P5S1.g,03N1S1.g,03N2S5.g,03N3S2.g,03N3S4.g,03N5S2.g,03P2S4.g,03P3S5.g,03P5S5.g,05N2S5.g,05N3S3.g,05P2S1.g,05P2S2.g,05P3S1.g,05P4S4.g,05P5S4.g,12P2S5.g,12P3S4.g,12P4S2.g,16N5S4.g,16P3S2.g,16P5S2.g,19N3S4.g,19P3S4.g,19P5S2.g,21N2S3.g,21N3S2.g,21P2S4.g,21P3S4.g,21P4S2.g,21P5S1.g,annotation,gene,description
+"2,019,721",G?A,,?,,,,,,,,,100%,?,?,?,,?,,?,?,?,,?,,?,?,,?,,?,,100%,,?,?,,?,noncoding (1213/1497 nt),RNA_51 ?,16S ribosomal RNA
+"2,019,723",3 bp?TGT,,?,,,,,,,,,100%,?,?,?,,?,,?,?,?,,?,,?,?,,?,,?,,,,,?,,,noncoding (1209?1211/1497 nt),RNA_51 ?,16S ribosomal RNA
+"2,019,724",A?G,?,?,,,,,,,,?,,?,?,?,,?,?,?,?,?,,?,?,?,?,,?,?,?,?,,100%,,?,100%,100%,noncoding (1210/1497 nt),RNA_51 ?,16S ribosomal RNA
+"2,019,724",2 bp?GT,?,?,,,,,,,,?,,?,?,?,,?,?,?,?,?,,?,?,?,?,,?,?,?,?,100%,,,?,,,noncoding (1209?1210/1497 nt),RNA_51 ?,16S ribosomal RNA
+"2,019,725",A?C,?,?,?,,,,,?,,?,,?,?,?,100%,?,?,?,?,?,,?,?,?,?,,?,?,?,?,,,?,?,,?,noncoding (1209/1497 nt),RNA_51 ?,16S ribosomal RNA
+"2,019,725",2 bp?CT,?,?,,,100%,100%,,,,?,,?,?,?,,?,?,?,?,?,,?,?,?,?,,?,?,?,?,,,,?,,,noncoding (1208?1209/1497 nt),RNA_51 ?,16S ribosomal RNA
+"2,019,726",C?G,?,?,?,100%,,,,?,100%,?,,?,?,?,?,?,?,?,?,?,100%,?,?,?,?,100%,?,?,?,?,,,?,?,,?,noncoding (1208/1497 nt),RNA_51 ?,16S ribosomal RNA
+"2,019,728",T?C,?,?,?,?,?,?,,?,?,?,100%,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,100%,,?,?,,?,noncoding (1206/1497 nt),RNA_51 ?,16S ribosomal RNA
+"2,019,732",G?T,?,?,?,?,?,?,,?,?,?,100%,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,100%,,?,?,,?,noncoding (1202/1497 nt),RNA_51 ?,16S ribosomal RNA
+"2,019,734",T?C,?,?,?,?,?,?,,?,?,?,100%,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,100%,100%,100%,?,100%,100%,noncoding (1200/1497 nt),RNA_51 ?,16S ribosomal RNA
+position,mutation,01N2S3.g,01N3S3.g,01N5S4.g,01P3S1.g,01P4S5.g,01P5S1.g,03N1S1.g,03N2S5.g,03N3S2.g,03N3S4.g,03N5S2.g,03P2S4.g,03P3S5.g,03P5S5.g,05N2S5.g,05N3S3.g,05P2S1.g,05P2S2.g,05P3S1.g,05P4S4.g,05P5S4.g,12P2S5.g,12P3S4.g,12P4S2.g,16N5S4.g,16P3S2.g,16P5S2.g,19N3S4.g,19P3S4.g,19P5S2.g,21N2S3.g,21N3S2.g,21P2S4.g,21P3S4.g,21P4S2.g,21P5S1.g,annotation,gene,description
+"2,019,737",T?C,?,?,?,?,?,?,,?,?,?,100%,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,100%,100%,100%,?,100%,100%,noncoding (1197/1497 nt),RNA_51 ?,16S ribosomal RNA
+"2,019,741",C?A,?,?,?,?,?,?,,?,?,?,,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,,,?,?,100%,?,noncoding (1193/1497 nt),RNA_51 ?,16S ribosomal RNA
+"2,019,741",3 bp?AAA,?,?,?,?,?,?,,?,?,?,100%,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,100%,,?,?,,?,noncoding (1191?1193/1497 nt),RNA_51 ?,16S ribosomal RNA
+"2,019,745",2 bp?GC,?,?,?,?,?,?,,?,?,?,100%,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,100%,,,?,,,noncoding (1188?1189/1497 nt),RNA_51 ?,16S ribosomal RNA
+"2,019,746",G?C,?,?,?,?,?,?,,?,?,?,,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,,100%,100%,?,100%,100%,noncoding (1188/1497 nt),RNA_51 ?,16S ribosomal RNA
+"2,019,755",T?C,?,?,?,?,?,?,,?,?,?,100%,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,100%,100%,100%,?,100%,100%,noncoding (1179/1497 nt),RNA_51 ?,16S ribosomal RNA
+"2,019,769",A?T,?,?,?,?,?,?,,?,?,?,,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,,,,?,,100%,noncoding (1165/1497 nt),RNA_51 ?,16S ribosomal RNA
+"2,019,769",3 bp?TAC,?,?,?,?,?,?,,?,?,?,100%,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,100%,,,?,,,noncoding (1163?1165/1497 nt),RNA_51 ?,16S ribosomal RNA
+"2,019,769",2 bp?TA,?,?,?,?,?,?,,?,?,?,,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,,100%,,?,100%,,noncoding (1164?1165/1497 nt),RNA_51 ?,16S ribosomal RNA
+"2,019,773",T?C,?,?,?,?,?,?,,?,?,?,100%,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,100%,100%,100%,?,100%,100%,noncoding (1161/1497 nt),RNA_51 ?,16S ribosomal RNA
+position,mutation,01N2S3.g,01N3S3.g,01N5S4.g,01P3S1.g,01P4S5.g,01P5S1.g,03N1S1.g,03N2S5.g,03N3S2.g,03N3S4.g,03N5S2.g,03P2S4.g,03P3S5.g,03P5S5.g,05N2S5.g,05N3S3.g,05P2S1.g,05P2S2.g,05P3S1.g,05P4S4.g,05P5S4.g,12P2S5.g,12P3S4.g,12P4S2.g,16N5S4.g,16P3S2.g,16P5S2.g,19N3S4.g,19P3S4.g,19P5S2.g,21N2S3.g,21N3S2.g,21P2S4.g,21P3S4.g,21P4S2.g,21P5S1.g,annotation,gene,description
+"2,019,781",G?C,?,?,?,?,?,?,,?,?,?,100%,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,100%,100%,100%,?,100%,100%,noncoding (1153/1497 nt),RNA_51 ?,16S ribosomal RNA
+"2,019,799",A?G,?,?,?,?,?,?,,?,?,?,100%,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,100%,100%,?,?,100%,?,noncoding (1135/1497 nt),RNA_51 ?,16S ribosomal RNA
+"2,019,803",A?C,?,?,?,?,?,?,,?,?,?,100%,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,100%,100%,100%,?,100%,100%,noncoding (1131/1497 nt),RNA_51 ?,16S ribosomal RNA
+"2,019,820",A?G,?,?,?,?,?,?,,?,?,?,100%,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,100%,100%,?,?,100%,100%,noncoding (1114/1497 nt),RNA_51 ?,16S ribosomal RNA
+"2,019,829",G?A,?,?,?,?,?,?,,?,?,?,100%,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,100%,100%,?,?,100%,?,noncoding (1105/1497 nt),RNA_51 ?,16S ribosomal RNA
+"2,019,835",T?C,?,?,?,?,?,?,,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,100%,?,?,,?,noncoding (1099/1497 nt),RNA_51 ?,16S ribosomal RNA
+"2,019,835",2 bp?CT,?,?,?,?,?,?,,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,,,?,?,100%,?,noncoding (1098?1099/1497 nt),RNA_51 ?,16S ribosomal RNA
+"2,020,039",A?G,?,?,?,?,100%,?,,?,?,?,?,?,?,?,?,?,?,?,?,100%,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,noncoding (895/1497 nt),RNA_51 ?,16S ribosomal RNA
+"2,020,081",C?T,?,?,?,?,100%,?,,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,noncoding (853/1497 nt),RNA_51 ?,16S ribosomal RNA
+"2,020,083",C?A,?,?,?,?,100%,?,,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,noncoding (851/1497 nt),RNA_51 ?,16S ribosomal RNA
+position,mutation,01N2S3.g,01N3S3.g,01N5S4.g,01P3S1.g,01P4S5.g,01P5S1.g,03N1S1.g,03N2S5.g,03N3S2.g,03N3S4.g,03N5S2.g,03P2S4.g,03P3S5.g,03P5S5.g,05N2S5.g,05N3S3.g,05P2S1.g,05P2S2.g,05P3S1.g,05P4S4.g,05P5S4.g,12P2S5.g,12P3S4.g,12P4S2.g,16N5S4.g,16P3S2.g,16P5S2.g,19N3S4.g,19P3S4.g,19P5S2.g,21N2S3.g,21N3S2.g,21P2S4.g,21P3S4.g,21P4S2.g,21P5S1.g,annotation,gene,description
+"2,033,672",C?A,,,,,,,,,,,,,100%,,,,,,,,,,,,,,,,,,,,,,,,P106H (CCC?CAC) ,SynWH7803_2208 ?,Fe?S oxidoreductase
+"2,034,338",G?A,,,,,,,,,,,,,,,,,,,,100%,,,,,,,,,,,,,,,,,G328D (GGT?GAT) ,SynWH7803_2208 ?,Fe?S oxidoreductase
+"2,050,905",G?A,,,,,,,,,,,,,,,,100%,,,,,,,,,,,,,,,,100%,,?,,,L414F (CTT?TTT) ,SynWH7803_2230 ?,Na+/H+ antiporter
+"2,111,877",C?A,,,,,,,,,,,,,,,,,,,,,,,100%,,,,,,,,,,,?,,,E126D (GAG?GAT) ,SynWH7803_2290 ?,NADH dehydrogenase subunit I
+"2,125,808",G?T,,,,,,,,,,100%,,,,,,,,,,,,,,,,,,,,,,,,?,,,intergenic (?72/?44),purE ? / ? nagA,phosphoribosylaminoimidazole carboxylase catalytic subunit/N?acetylglucosamine?6?phosphate deacetylase
+"2,127,789",+G,,100%,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,coding (534/573 nt),SynWH7803_2307 ?,hypothetical protein
+"2,167,252",C?A,,,,,,100%,,,,,,,,,,,,,,,,,,,,,,,,,,,,?,,,N172K (AAC?AAA) ,SynWH7803_2345 ?,carbohydrate?binding protein
+"2,176,220",G?A,,100%,,,,,,,,,,100%,,,,,,,,,,,,,,,,100%,,,100%,,100%,?,,100%,N633N (AAC?AAT) ,SynWH7803_2356 ?,hypothetical protein
+"2,176,310",G?A,,,,,100%,100%,,,100%,,,,,100%,,100%,,,100%,,,,100%,,100%,,,,,100%,,100%,,?,100%,,D603D (GAC?GAT) ,SynWH7803_2356 ?,hypothetical protein
+"2,233,661",+A,100%,100%,100%,100%,100%,100%,,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,100%,pseudogene (357/479 nt),SynWH7803_2402 ?,hypothetical protein
