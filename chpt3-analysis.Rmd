@@ -10,7 +10,7 @@ geometry: margin = 0.75in
 ---
 
 ```{r setup}
-setwd("C:/Users/meglarse/GitHub/larsen-dissertation/analyses/chpt3_Genetic/")
+# setwd("C:/Users/meglarse/GitHub/larsen-dissertation/analyses/chpt3_Genetic/")
 
 #Load Packages
 require(phylobase);require(picante)
@@ -300,12 +300,12 @@ require(ade4)
 
 #check dimensions of matrices
 dim(breseq);dim(inf.mat2)
-setdiff(rownames(breseq),rownames(inf.mat2))
-setdiff(rownames(inf.mat2),rownames(breseq))
+rmv <- which(rownames(breseq)%in%setdiff(rownames(breseq),rownames(inf.mat2)))
+which(rownames(inf.mat2)%in%setdiff(rownames(inf.mat2),rownames(breseq)))
 
-rmv=c(22,28,31,33,34)
+# rmv=c(22,28,31,33,34)
 breseq = breseq[-rmv,]
-#inf.mat2= inf.mat2[-32,]
+inf.mat2= inf.mat2[-32,]
 #inf.dat2 = inf.dat2[-32,]
 
 # Make a distance matrix for the mutational data
