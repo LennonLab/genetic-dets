@@ -1,6 +1,6 @@
 ---
 title: "syn-genome_DataAnalysis"
-author: "Larsen ML"
+author: "Larsen ML Reanalyzed by Daniel Schwartz"
 date: "`r format(Sys.time(), '%d %B, %Y')`"
 header-includes:
    - \usepackage{array}
@@ -17,7 +17,7 @@ require(phylobase);require(picante)
 require(ape)
 
 ```
-
+**DS:** I wil use this format to add my text comments to ML's text.
 
 #Project Summary
 
@@ -50,13 +50,27 @@ Data for this analysis was collected from whole genome sequences of senstivive a
 ## What are the genome mutations conferring resistance to phage infection?
 
 ```{r data-formatting}
+rm(list = ls())
 # read in selected data files for analysis
 breseq <- read.csv("./data/breseq.compare.csv", header = T)      #breseq produced compare file
+
+#remove rRNA mutations (details below)
+breseq <-breseq[!(grepl("16S",breseq$X.39)),]
 
 # Prior to this point, the mutation annotation data has been moved to a separate file. 
 
 breseq = breseq[,-c(2,39,40,41)]
 
+```
+
+**DS:** There is an isolate (03N1S1) that the breseq matrix lists to have "?2,366,975 bp" mutation. This is a "wole geome deletion". I assume there was a problem with the sequencing of this strain, I will remove the strain and the row with that mutation.   
+```{r}
+breseq <- breseq[,-which(breseq[1,]=="03N1S1.g")]
+breseq <- breseq[-which(breseq[,1]=="1"),]
+```
+
+
+```{r data-formatting}
 # restructure data for analysis
 # rename the strains
 N <- 6
@@ -64,8 +78,10 @@ strains = as.matrix(breseq[1,-1])
 strain.names <- sapply(strsplit(strains, ""), function(x, n) paste(head(x, n), collapse = ""), N)
 
 
-# Remove unnessary rows
+# Remove unnecessary rows
 breseq <- breseq[-which(breseq[,1]=="position"),]
+
+
 
 # Convert matrix into binary data file. 
 # Predicted mutation goes from 100% to 1
@@ -77,8 +93,6 @@ breseq[breseq == "?"] <- 0
 breseq[breseq == ""] <- 0
 
 #rename the columns and rows
-breseq <- breseq[-1,]
-
 rownames(breseq) <- breseq[,1]
 breseq <- breseq[,-1]
 colnames(breseq) = strain.names
@@ -88,7 +102,8 @@ colnames(breseq) = strain.names
 
 # Remove rows with no predicted mutations
 class(breseq) = "numeric"
-breseq <- breseq[-c(which(rowSums(breseq)==35)),]
+breseq <- breseq[-c(which(rowSums(breseq)==35)),]# DS: this rremoves mutations shared by all strains
+
 #rowSums(breseq)
 
 # separate the mutation data
@@ -99,26 +114,42 @@ breseq.mutno <- cbind(mut.num,rownames(breseq))
 
 # transform the matrix to get strains in the rows
 breseq <- t(breseq)
-breseq.data <- breseq[-c(which(rowSums(breseq)==0)),]
+#DS: remove strains with no mutations
+breseq <- breseq[-c(which(rowSums(breseq)==0)),]
 
-print(rownames(breseq[which(rowSums(breseq)==0),]))
+# print(rownames(breseq[which(rowSums(breseq)==0),]))
 
 #merge the meta data
 #breseq <- merge(strains, breseq, by = "strain.name", all = T)
 
 ```
 
+**DS:** This is the code segment which hs the subsetting error. Here I fixed the cde and I can compare with the original code saved in seperate file.
 ```{r, eval = TRUE}
 strains <- read.csv("./data/strains.csv",header = T)
 
 breseq.all <- as.data.frame(merge(strains,breseq, by.x = "strain_ID",by.y = 0))
 
 breseq.minus <- breseq.all[breseq.all$trt=="Ph-",]
-breseq.minus <- breseq.minus[,-c(which(colSums(breseq.minus[,6:117]) ==0))]
-breseq.minus.muts = colnames(breseq.minus[3:41])
+# DS: This line removes positions which have no mutations in Ph-
+#these comments were addressed
+        # # DS: I am not sure why the column are limited to 117
+        # # DS: What is left out?
+        # colnames(breseq.minus[,118:ncol(breseq.minus)])
+        # # Maybe this was meant to remove rRNA mutations which was commented out above???
+        # #This takes out more than that...
+        # # I will add code above to remove rRNA mutations and the subset here with all columns
+
+# sum(colSums(breseq.minus[,6:ncol(breseq.minus)]) >0)
+breseq.minus <- breseq.minus[,c(1:5,(c(which(colSums(breseq.minus[,6:ncol(breseq.minus)])>0))+5))]
+breseq.minus.muts = colnames(breseq.minus[6:ncol(breseq.minus)])
+# breseq.plus <- breseq.all[breseq.all$trt=="Ph+",]
+# breseq.plus <- breseq.plus[,-c(which(colSums(breseq.plus[,6:117]) ==0))]
+# breseq.plus.muts = colnames(breseq.plus[5:89])
 breseq.plus <- breseq.all[breseq.all$trt=="Ph+",]
-breseq.plus <- breseq.plus[,-c(which(colSums(breseq.plus[,6:117]) ==0))]
-breseq.plus.muts = colnames(breseq.plus[5:89])
+breseq.plus <- breseq.plus[,c(1:5,(c(which(colSums(breseq.plus[,6:ncol(breseq.plus)])>0))+5))]
+breseq.plus.muts = colnames(breseq.plus[6:ncol(breseq.plus)])
+
 
 both <- intersect(breseq.minus.muts,breseq.plus.muts)
 phage.minus.only <- setdiff(breseq.minus.muts,breseq.plus.muts)
