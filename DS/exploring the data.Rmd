@@ -1,0 +1,184 @@
+---
+title: "exploring the data"
+output: html_notebook
+editor_options: 
+  chunk_output_type: inline
+---
+
+# strains
+the files *starins.csv* has a list of strains isolated from chemstats
+```{r}
+rm(list=ls())
+library(tidyverse, quietly = TRUE)
+library(cowplot, quietly = TRUE)
+d <- read_csv("../data/strains.csv")
+rbind(head(d,n=3), rep("...",ncol(d)),tail(d,n=3))
+```
+
+How many Isolates are there of each kind?  
+```{r}
+d%>%
+      filter(trt!="A")%>% #remove ancestor
+       group_by(trt,lim,time) %>%
+   summarize(isolates = n()) %>%
+      ggplot(.,aes(x=time, y=isolates))+
+      geom_bar(stat = "identity")+
+      facet_grid(trt~lim)+
+      theme_cowplot()
+```
+```{r}
+d%>%
+      filter(trt!="A")%>% #remove ancestor
+       group_by(trt,lim) %>%
+   summarize(isolates = n()) 
+      
+```
+
+So there are isolates from both phage and nom phage chemostats. For N-limitation, no-phage isolates are only from firat few days.
+
+#Breseq  
+First chunck of table
+```{r}
+d <- read.csv("../data/breseq.compare.csv", header = TRUE)
+head(d,n=11)
+```
+
+Looking at the code organizing the mutation data in MLs .Rmd file. The data is processed to have a positionXstrain matrix. at one point this code chunk appears  
+```{r, eval=FALSE}
+# Remove rows with no predicted mutations  
+class(breseq) = "numeric"  
+breseq <- breseq[-c(which(rowSums(breseq)==35)),]     
+```  
+At this point the table is 36 strains X 209 loci. I am not sure why the 35 cutoff was used. There are no rows with 36 mutaations, but there are rows with 34. there are 3 rows in whic 35/36 strains have mutations. In all 3 cases the same strainsoes not have this mutation, That strain is 03N1S1 (day 3, N-limited, chemostat 1, no-phage). Looking at the breseq file it seems this strain does not have any mutations. So in fact, the N-limited no phage chemostats have only day1 isolates. However this strain has not been removed from the next step of analysis.
+
+Looing at the data partitioning into the +/- phage treatment, I think there is a problem.
+In this next chunk filtering is by a test applied to subset of table (`breseq.minus[,6:117]`) and applied to full table (`breseq.minus`).
+
+I am also not sure why the columns `118:211` are ignored.
+
+```{r, eval = TRUE}
+
+
+load(file = "breseq.all.Rdata")
+
+breseq.minus <- breseq.all[breseq.all$trt=="Ph-",]
+breseq.minus <- breseq.minus[,-c(which(colSums(breseq.minus[,6:117]) ==0))]
+breseq.minus.muts = colnames(breseq.minus[3:41])
+breseq.plus <- breseq.all[breseq.all$trt=="Ph+",]
+breseq.plus <- breseq.plus[,-c(which(colSums(breseq.plus[,6:117]) ==0))]
+breseq.plus.muts = colnames(breseq.plus[5:89])
+
+both <- intersect(breseq.minus.muts,breseq.plus.muts)
+phage.minus.only <- setdiff(breseq.minus.muts,breseq.plus.muts)
+phage.plus.only <- setdiff(breseq.plus.muts,breseq.minus.muts)
+```
+
+I will subset it my way and compare
+
+```{r, eval = TRUE}
+sums <- 
+breseq.all%>%
+      filter(trt=="Ph-")%>%
+      select(6:ncol(breseq.all))%>%
+      colSums()
+
+breseq.minus2 <- breseq.all%>%
+      filter(trt=="Ph-")%>%
+      select(as.numeric(which(sums!=0)+5))
+
+sums <- 
+breseq.all%>%
+      filter(trt=="Ph+")%>%
+      select(6:ncol(breseq.all))%>%
+      colSums()
+
+breseq.plus2 <- breseq.all%>%
+      filter(trt=="Ph+")%>%
+      select(as.numeric(which(sums!=0)+5))
+      
+
+breseq.minus.muts2 = colnames(breseq.minus2)
+breseq.plus.muts2 = colnames(breseq.plus2)
+
+both2 <- intersect(breseq.minus.muts2,breseq.plus.muts2)
+phage.minus.only2 <- setdiff(breseq.minus.muts2,breseq.plus.muts2)
+phage.plus.only2 <- setdiff(breseq.plus.muts2,breseq.minus.muts2)      
+
+all.muts <- breseq.all%>%
+     select(6:ncol(breseq.all))%>%
+     colnames()
+
+df <- data.frame(loci=as.numeric(gsub(",", "",all.muts)))
+df$both.ML <- ifelse(all.muts%in%both,1,NA)
+df$both.DS <- ifelse(all.muts%in%both2,1,NA)
+df$noPHI.ML <- ifelse(all.muts%in%phage.minus.only,1,NA)
+df$noPHI.DS <- ifelse(all.muts%in%phage.minus.only2,1,NA)
+df$PHI.ML <- ifelse(all.muts%in%phage.plus.only,1,NA)
+df$PHI.DS <- ifelse(all.muts%in%phage.plus.only2,1,NA)
+
+
+df%>%
+      gather(key=category,value = mutation, 2:7)%>%
+      ggplot(aes(x=loci, y=category))+
+      geom_vline(xintercept = df$loci, color="grey")+
+      geom_jitter(aes(color=factor(mutation)), width=0, height=0.2)+
+      theme_cowplot(font_size = 10)+
+      scale_color_discrete(na.value = NA)
+      
+```
+
+```{r}
+
+df2 <- data.frame(loci = df$loci, both=NA, noPHI=NA, PHI=NA)
+df2$both <- ifelse(is.na(df$both.ML), "NO","ML")
+df2$both[!is.na(df$both.DS)] <- ifelse(df2$both[!is.na(df$both.DS)]=='ML', "BOTH", "DS")
+df2$noPHI <- ifelse(is.na(df$noPHI.ML),"NO", "ML")
+df2$noPHI[!is.na(df$noPHI.DS)] <- ifelse(df2$noPHI[!is.na(df$noPHI.DS)]=='ML', "BOTH", "DS")
+df2$PHI <- ifelse(is.na(df$PHI.ML),"NO", "ML")
+df2$PHI[!is.na(df$phi.DS)] <- ifelse(df2$PHI[!is.na(df$PHI.DS)]=='ML', "BOTH", "DS")
+
+p <- 
+df2%>%
+      gather(key=category,value = mutation, 2:4)%>%
+      ggplot(aes(x=category, y=factor(loci)))+
+      geom_tile(aes(fill=mutation))+
+      theme_cowplot(font_size = 10)+
+      scale_fill_viridis(discrete=TRUE)+
+      coord_flip()
+p
+      ggsave2(p,filename = "loci.compared.jpg")
+
+
+```
+
+Tabulating the data
+I want to make a table of the genes in which mutations were found only in phage-treatment.
+
+```{r}
+load ("breseq.Rdata")
+breseq <-unlist(breseq)
+#remove the mutations that are in all (see above)
+breseq <- breseq[(loci%in%all.muts),]
+loci <- row.names(breseq)
+# breseq <- as.data.frame(breseq)
+breseq$loci <- loci
+rownames(breseq) <- c()
+meta <-breseq[,c(1,38:41)]
+
+
+phi.filter <- df$loci[is.na(df$PHI.DS)]
+PHI.only <- breseq[as.numeric(gsub(",","",loci))%in%phi.filter,]
+
+#break up and put back together
+meta <- PHI.only[,c(1,38:41)]
+PHI.only <-  PHI.only[,-c(1,38:41)]
+# rownames(PHI.only) <- c()
+PHI.only <- as.matrix.data.frame(PHI.only)
+PHI.only <- `class<-`(PHI.only,"numeric")
+PHI.only <- t(PHI.only)
+strains <- read_csv("../data/strains.csv")
+full_join(strains, as.data.frame(PHI.only), by())
+
+```
+
+
