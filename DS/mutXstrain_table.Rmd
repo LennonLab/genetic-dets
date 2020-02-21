@@ -11,21 +11,44 @@ My goal here is to organize the breseq data in a t table with genes as rows and 
 rm(list=ls())
 library(tidyverse, quietly = TRUE)
 library(cowplot, quietly = TRUE)
+```
+## Loading strain data  
+* trt: phage infection  
+* lim: limiting nutrient  
+* cID: chemostat number  
+* time: sampling time in days  
+* strain_ID: sample day + chemostat + strain number  
+
+```{r, message=FALSE}
 # table of strains and their source (time, treatment)
 strains <- read_csv("../data/strains.csv")
 # remove ansector
 strains <- filter(strains,strain_ID!="WH7803")
-rbind(head(strains,n=3), rep("...",ncol(strains)),tail(strains,n=3))
+strains
 ```  
 
-```{r}
-# data on mutations found in each strain. Requires processing
-breseq <- read_csv("../data/breseq.compare.csv")#,na = "?")
-rbind(head(breseq,n=3), rep("...",ncol(breseq)),tail(breseq,n=3))
-```
+# Mutation data  
+I copy pasted the data found in _data/20140611_allcompare.html_ into excel and cleaned it up a bit. Re-importing it preserved some of the charachters that were lost in the file as it is found in _data/breseq.compare.csv_.  
+* I removed the first line that indicates a complete genome deletion. This results in strain 03N1S1 not having any mutation. this caused a bunch of NA being put in cells upon import, so I put in 0s instead.   
+* I cleaned all the special charechters out of the mutation column. the right pointing arrow I replaced with "sub", $\Delta$ was replaced by "d", and a bunch of spces that acted funny upon import were changed to regular spaces.  
+* Cleaning the anotation data from special charecters is too much of a mess. Instead I downloaded a table of the genetic features of WH7803 from <ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/000/063/505/GCA_000063505.1_ASM6350v1/GCA_000063505.1_ASM6350v1_feature_table.txt.gz>. I verified that the positions are similar to what is in the breseq html file in a few loci. seems like a perfect fit. This too required some cleanin to remove the duplicated rows and some empty columns.  
+* replaced empty cells with "0"
 
-Processing breseq data to a strain X locus matrix  
 ```{r}
+# Import data file
+breseq <- read.csv("breseq_allcompare.csv")
+
+# need to
+
+
+
+
+
+
+
+
+
+
 # make strain names be column names
 colnames (breseq)<- gsub(".g","",breseq[1,])
 # Remove unnecessary rows
