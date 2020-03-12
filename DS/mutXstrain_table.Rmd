@@ -1,0 +1,317 @@
+---
+title: "Mutation by strain table "
+output: html_notebook
+editor_options: 
+  chunk_output_type: inline
+---
+My goal here is to organize the breseq data in a t table with genes as rows and the strains as columns. Table cells will contain nubers indicating the nuber of mutations observed.
+
+
+```{r, message=FALSE}
+rm(list=ls())
+library(tidyverse, quietly = TRUE)
+library(cowplot, quietly = TRUE)
+library(viridis)
+```
+## Loading strain data  
+* trt: phage infection  
+* lim: limiting nutrient  
+* cID: chemostat number  
+* time: sampling time in days  
+* strain_ID: sample day + chemostat + strain number  
+
+```{r, message=FALSE}
+# table of strains and their source (time, treatment)
+strains <- read_csv("../data/strains.csv")
+# remove ansector
+strains <- filter(strains,strain_ID!="WH7803")
+strains
+```  
+
+# Mutation data  
+I copy pasted the data found in _data/20140611_allcompare.html_ into excel and cleaned it up a bit. Re-importing it preserved some of the charachters that were lost in the file as it is found in _data/breseq.compare.csv_.  
+* I removed the first line that indicates a complete genome deletion. This results in strain 03N1S1 not having any mutation. this caused a bunch of NA being put in cells upon import, so I put in 0s instead.   
+* I cleaned all the special charechters out of the mutation column. the right pointing arrow I replaced with "sub", $\Delta$ was replaced by "d", and a bunch of spces that acted funny upon import were changed to regular spaces.  
+* Cleaning the anotation data from special charecters is too much of a mess. Instead I downloaded a table of the genetic features of WH7803 from <ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/000/063/505/GCA_000063505.1_ASM6350v1/GCA_000063505.1_ASM6350v1_feature_table.txt.gz>. I verified that the positions are similar to what is in the breseq html file in a few loci. seems like a perfect fit. This too required some cleanin to remove the duplicated rows and some empty columns.  
+* replaced empty cells, "?", $\Delta$  with "0"; replaced "100%" with 1.  
+
+```{r, message=FALSE}
+# Import data file
+breseq <- read_csv("breseq_allcompare.csv")
+
+# correct column names
+colnames (breseq)<- gsub(".g","",colnames (breseq))
+
+```
+
+# Summarizing mutations by gene  
+
+```{r}
+
+
+# # crop out the annotation data
+# breseq.annot  <-  
+#   breseq%>%
+#     select(position,mutation,annotation,gene,description)
+
+
+#summarize mutations by gene
+mXg <- 
+  breseq%>%
+    select(-position,-mutation,-annotation)%>%
+    group_by(gene, description)%>%
+    summarize_if(is.numeric, sum, na.rm = TRUE)
+   
+mXg$gene <-  str_replace_all(mXg$gene, "[^[:alnum:],_,/]", "")
+# write_csv(mXg, "mxg.csv")
+knitr::kable(mXg)
+
+```
+
+## summarize by treatment  
+Consolidate columns (strains) that have the come from the same treaatment (nutrient and phage)
+```{r}
+# test for compatability between strain and mutation tables
+
+# strain names from mutation data
+breseq.strains <- 
+  breseq%>%
+  select_if(is.numeric)%>%
+  select(-position)%>%
+  colnames()
+
+# sum(!(breseq.strains %in% strains$strain_ID)) #0
+# sum(!(strains$strain_ID %in% breseq.strains)) #0
+# # the lists match!
+trtXg <- 
+#transpose the table 
+mXg %>%
+  select(-description)%>%
+  pivot_longer( cols = c(2:ncol(.)),names_to = "strain_ID", values_to = "mutations")%>%
+  pivot_wider(id_cols = strain_ID, names_from = "gene", values_from = "mutations")%>%
+  # add the meta data
+  left_join(select(strains,trt, lim, strain_ID), . )%>%
+  #summarize treatments
+  group_by(trt, lim)%>%
+  mutate(n.strains=n())%>%
+  group_by(trt, lim,n.strains)%>%
+  summarize_if(is_double, sum, na.rm = TRUE)%>%
+  # transpose back
+  mutate(meta=paste0(lim,".",trt,".","n", n.strains))%>%
+  ungroup()%>%
+  select(-trt, -lim, -n.strains)%>%
+  pivot_longer( cols = c(1:(ncol(.)-1)),names_to = "gene", values_to = "mutations")%>%
+  pivot_wider(id_cols = gene, names_from = "meta", values_from = "mutations")
+
+
+trtXg
+```
+
+```{r}
+
+#To normalize mutations I want number of strains
+n.strains <- 
+  mXg %>%
+    select(-description)%>%
+    pivot_longer( cols = c(2:ncol(.)),names_to = "strain_ID", values_to = "mutations")%>%
+    pivot_wider(id_cols = strain_ID, names_from = "gene", values_from = "mutations")%>%
+    # add the meta data
+    left_join(select(strains,trt, lim, strain_ID), . )%>%
+    #summarize treatments
+    group_by(trt, lim)%>%
+    mutate(n=n())%>%
+    select(trt,lim,n)%>%
+    group_by(trt, lim,n)%>%
+    summarise()
+
+#normalize
+trtXg%>%
+  select(-gene)%>%
+  sweep(., 2,FUN="/",STATS=n.strains$n)%>%
+  #add gene names back
+  mutate(gene=trtXg$gene)%>%
+  #prepare for plotting
+  pivot_longer(cols = colnames(trtXg)[-1], names_to = "trt", values_to = "norm.mut")%>%
+  ggplot(aes(x=trt, y=gene,fill=log10(norm.mut)))+
+  geom_tile(colour="white",size=0.25)+
+  scale_fill_viridis()->p
+
+# ggsave("heatmap.pdf",p, height = 10)
+
+p  
+
+
+```
+
+# Consolidate mutations by chemostat  
+
+We need to account for repeated samples from the same chemostat and normalize for different number of chemstats per treamtent combination.
+
+## chemostats per treatment
+```{r}
+
+strains%>%
+  ggplot(aes(x=time))+
+  geom_bar(aes(fill=trt), color="black", width=0.5)+
+  facet_wrap(~cID, ncol = 2, dir = "v")+
+  theme_cowplot()+
+  scale_y_continuous(breaks = c(0,1,2))+
+  scale_x_continuous(breaks=seq(0,21,7))+
+  ggtitle("Strains sequenced in each chemostat")+
+  xlab("Time (days)")+
+  ylab("# Strains")
+
+```
+
+I think we will need to treat the no-phage sample of each chemostat as that chemostat's ancestor.
+
+## presence-absence of mutations by chemostat.
+
+```{r, message=FALSE}
+
+chemostatXg <-
+#transpose the table
+mXg %>%
+  select(-description)%>%
+  pivot_longer( cols = c(2:ncol(.)),names_to = "strain_ID", values_to = "mutations")%>%
+  pivot_wider(id_cols = strain_ID, names_from = "gene", values_from = "mutations")%>%
+  # add the meta data
+  left_join(select(strains,trt, lim,cID, strain_ID), . )%>%
+  #summarize treatments
+  group_by(trt, lim, cID)%>%
+  summarize_if(is_double, sum, na.rm = TRUE)%>%
+  # transpose back
+  mutate(meta=paste0(lim,".",cID,".",trt))%>%
+  ungroup()%>%
+  select(-trt, -lim, -cID)%>%
+  pivot_longer( cols = c(1:(ncol(.)-1)),names_to = "gene", values_to = "mutations")%>%
+  pivot_wider(id_cols = gene, names_from = "meta", values_from = "mutations")#%>%
+  # print()
+
+
+# in a different var I will transform data to presnce absence
+chemostatXg.pa <- 
+  chemostatXg %>% 
+    mutate_at(vars(-gene), ~ replace(., . > 0 | is.na(.), 1))
+
+
+# aggregate by chemostat
+ 
+chemostatXg.pa%>%
+  # transpose
+  pivot_longer( cols = c(2:ncol(.)),names_to = "strain_ID", values_to = "mutations")%>%
+  mutate(lim=str_split(strain_ID,pattern = "\\.", simplify = T)[,1],
+         cID=str_split(strain_ID,pattern = "\\.", simplify = T)[,2],
+         trt=str_split(strain_ID,pattern = "\\.", simplify = T)[,3])%>%
+  select(-strain_ID)%>%
+  #summarize treatments
+  group_by(gene,trt ,lim, cID)%>%
+    summarize(n.mut=sum(mutations))%>%
+  ungroup()%>%
+  mutate(n.mut=as.character(n.mut))%>%
+    ggplot(aes(x=trt, y=gene,fill=n.mut))+
+  geom_tile(colour="white",size=0.25)+
+  scale_fill_viridis(discrete = T, direction = -1, option = "magma")+
+  facet_grid(.~cID)+
+  theme_cowplot() ->p
+
+
+  ggsave2("mutXchemo_PA.pdf", p,width = 8.5,height = 11)
+  
+p
+
+
+```
+
+Intersting observations:  
+* gene 1386 has mutations in phage samples of different chemostats.
+* Same for 0219, 0102 and several others.
+* There are a few mutations that appeear in the non-infected ancestral population and disappear in the evolved infecred. E.g. genes 2307 and hupE in N3.
+
+## numbers to normalize to
+i.e. what is the number of independent observations
+
+
+```{r, include=F}
+# #To normalize mutations I want number of chemostats per treatment
+# n.strains <- 
+#   strains%>%
+#   select(trt,lim,cID)%>%
+#   filter(!duplicated(interaction(trt,lim,cID)))%>%
+#   arrange(cID)%>%
+#   group_by(trt, lim)%>%
+#     summarise(n=n(), cIDs=paste(cID, collapse=" "))%>%
+#   print()
+```
+
+```{r, include=F}
+
+chemostatXg <-
+#transpose the table
+mXg %>%
+  select(-description)%>%
+  pivot_longer( cols = c(2:ncol(.)),names_to = "strain_ID", values_to = "mutations")%>%
+  pivot_wider(id_cols = strain_ID, names_from = "gene", values_from = "mutations")%>%
+  # add the meta data
+  left_join(select(strains,trt, lim,cID, strain_ID), . )%>%
+  #summarize treatments
+  group_by(trt, lim, cID)%>%
+  summarize_if(is_double, sum, na.rm = TRUE)%>%
+  # transpose back
+  mutate(meta=paste0(lim,".",cID,".",trt))%>%
+  ungroup()%>%
+  select(-trt, -lim, -cID)%>%
+  pivot_longer( cols = c(1:(ncol(.)-1)),names_to = "gene", values_to = "mutations")%>%
+  pivot_wider(id_cols = gene, names_from = "meta", values_from = "mutations")#%>%
+  # print()
+
+
+# in a different var I will transform data to presnce absence
+chemostatXg.pa <- 
+  chemostatXg %>% 
+    mutate_at(vars(-gene), ~ replace(., . > 0 | is.na(.), 1))
+
+
+# aggregate by treatment
+ 
+chemostatXg.pa%>%
+  # transpose
+  pivot_longer( cols = c(2:ncol(.)),names_to = "strain_ID", values_to = "mutations")%>%
+  mutate(lim=str_split(strain_ID,pattern = "\\.", simplify = T)[,1],
+         cID=str_split(strain_ID,pattern = "\\.", simplify = T)[,2],
+         trt=str_split(strain_ID,pattern = "\\.", simplify = T)[,3])%>%
+  select(-strain_ID)%>%
+  #summarize treatments
+  group_by(gene,trt ,lim)%>%
+    summarize(n.mut=sum(mutations))%>%
+  ungroup()%>%
+  mutate(n.mut=as.character(n.mut))%>%
+    ggplot(aes(x=trt, y=gene,fill=n.mut))+
+  geom_tile(colour="white",size=0.25)+
+  scale_fill_viridis(discrete = T, direction = -1, option = "magma")+
+  facet_grid(.~lim)+
+  theme_cowplot()
+  
+
+
+
+```  
+
+```{r, include=F}
+#plot heat map
+chemostatXg.pa%>%
+  select(-gene)%>%
+  sweep(., 2,FUN="/",STATS=n.strains$n)%>%
+  #add gene names back
+  mutate(gene=trtXg$gene)%>%
+  #prepare for plotting
+  pivot_longer(cols = colnames(trtXg)[-1], names_to = "trt", values_to = "norm.mut")%>%
+  ggplot(aes(x=trt, y=gene,fill=log10(norm.mut)))+
+  geom_tile(colour="white",size=0.25)+
+  scale_fill_viridis()->p
+
+# ggsave("heatmap.pdf",p, height = 10)
+
+p  
+```
+
