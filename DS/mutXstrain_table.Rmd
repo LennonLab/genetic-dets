@@ -35,16 +35,12 @@ I copy pasted the data found in _data/20140611_allcompare.html_ into excel and c
 * Cleaning the anotation data from special charecters is too much of a mess. Instead I downloaded a table of the genetic features of WH7803 from <ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/000/063/505/GCA_000063505.1_ASM6350v1/GCA_000063505.1_ASM6350v1_feature_table.txt.gz>. I verified that the positions are similar to what is in the breseq html file in a few loci. seems like a perfect fit. This too required some cleanin to remove the duplicated rows and some empty columns.  
 * replaced empty cells, "?", $\Delta$  with "0"; replaced "100%" with 1.  
 
-```{r}
+```{r, message=FALSE}
 # Import data file
 breseq <- read_csv("breseq_allcompare.csv")
 
 # correct column names
 colnames (breseq)<- gsub(".g","",colnames (breseq))
-
-#correct values
-breseq%>%
-  gsub("\\?", "0",.)
 
 ```
 
@@ -106,6 +102,7 @@ mXg %>%
   pivot_longer( cols = c(1:(ncol(.)-1)),names_to = "gene", values_to = "mutations")%>%
   pivot_wider(id_cols = gene, names_from = "meta", values_from = "mutations")
 
+trtXg$gene <- str_replace_all(trtXg$gene, "[^[:alnum:],_,/]", "")
 trtXg
 ```
 
