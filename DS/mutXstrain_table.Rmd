@@ -69,13 +69,40 @@ knitr::kable(mXg)
 
 # Principal Coordinates Analysis (PCoA)
 
-# take count data and use gene names as rownames
+# Take count data and use gene names as rownames
 mXg.1 <-as.data.frame(mXg[,3:ncol(mXg)])
 rownames(mXg.1)<-t(mXg[,1])
 
-# transpose sample x mutation matrix, cal distance matrix, run PCoA
-mXg.2 <- t(mXg.1)
-mut.bc <- vegdist(mXg.2, method = "canberra", binary = "FALSE") #bray, jaccard, canbera
+# Subtract out mutations found in no-phage controls
+# Probably a better way to assign isolate IDs to treatments
+# Here is just did it manually by cross referencing Megan's excel sheet
+
+N.no.phage.list <- c("01N2S3", "01N3S3", "01N5S4", "03N1S1")
+N.no.phage.muts <- rowSums(mXg.1[, N.no.phage.list])
+N.no.phage.PA <-(N.no.phage.muts >0)*1
+N.plus.phage.list <- c("03N2S5","03N3S2","03N3S4","03N5S2",
+                       "05N2S5","05N3S3","16N5S4","19N3S4","21N2S3","21N3S2")
+N.plus.phage <- (mXg.1[, N.plus.phage.list] >0) *1
+N.plus.phage.PA <- (N.plus.phage - N.no.phage.PA >0)*1
+
+P.no.phage.list <- c("01P3S1","01P4S5","01P5S1","03P3S5","05P3S1",
+                    "12P3S4","16P3S2","19P3S4","21P3S4")
+P.no.phage.muts <- rowSums(mXg.1[, P.no.phage.list])
+P.no.phage.PA <-(P.no.phage.muts >0)*1
+P.plus.phage.list <- c("01P3S1","01P4S5","01P5S1","03P3S5","05P3S1",
+                    "12P3S4","16P3S2","19P3S4","21P3S4")
+P.plus.phage <- (mXg.1[, P.plus.phage.list] >0) *1
+P.plus.phage.PA <- (P.plus.phage - P.no.phage.PA >0)*1
+
+phage.muts.complete <- data.frame(N.plus.phage.PA,P.plus.phage.PA)
+phage.muts <- phage.muts.complete[ rowSums(phage.muts.complete)!=0, ] 
+colnames(phage.muts) <-c(colnames(N.plus.phage.PA),colnames(P.plus.phage.PA))
+
+# Transpose sample x mutation matrix, calculate distance matrix, run PCoA
+# There are a couple of errors called with vegdist and cmdscale
+#mXg.2 <- t(mXg.1)
+mXg.2 <- t(phage.muts)
+mut.bc <- vegdist(mXg.2, method = "bray", binary = "FALSE") #bray, jaccard, canbera
 mut.PCoA <- cmdscale(mut.bc, eig = TRUE, k = 3)
 explainvar1 <- round(mut.PCoA$eig[1] / sum(mut.PCoA$eig), 3) * 100
 explainvar2 <- round(mut.PCoA$eig[2] / sum(mut.PCoA$eig), 3) * 100
@@ -87,7 +114,7 @@ plot.new()
 par(mar = c(4, 5, 4, 0) + 0.5)
 
 plot(mut.PCoA$points[ ,1], mut.PCoA$points[ ,2],
-     ylim = c(-0.4, 0.4), xlim = c(-0.6, 0.6),
+     ylim = c(-0.4, 0.4), xlim = c(-0.2, 0.2),
      xlab = paste("PCoA 1 (", explainvar1, "%)", sep = ""),
      ylab = paste("PCoA 2 (", explainvar2, "%)", sep = ""),
      #xlab = "", ylab = "", xaxt = "n", yaxt = "n",
@@ -106,19 +133,18 @@ axis(side = 4, labels = F, lwd.ticks = 2, cex.axis = 1, las = 1, tck=0.01)
 abline(h = 0, v = 0, lty = 3)
 box(lwd = 2)
 
-# Subset data 
-# Probably a better way to assign isolate IDs to treatments
-# Here is just did it manually by cross referencing Megan's excel sheet
-N.no.phage.list <- c("01N2S3", "01N3S3", "01N5S4", "03N1S1")
-N.no.phage<-mut.PCoA$points[N.no.phage.list, ]
+# Subset data for plotting
+
+#N.no.phage.list <- c("01N2S3", "01N3S3", "01N5S4", "03N1S1")
+#N.no.phage<-mut.PCoA$points[N.no.phage.list, ]
 
 N.plus.phage.list <- c("03N2S5","03N3S2","03N3S4","03N5S2",
                        "05N2S5","05N3S3","16N5S4","19N3S4","21N2S3","21N3S2")
 N.plus.phage <- mut.PCoA$points[N.plus.phage.list, ]
 
-P.no.phage.list <-c("01P3S1","01P4S5","01P5S1","03P3S5","05P3S1",
+#P.no.phage.list <-c("01P3S1","01P4S5","01P5S1","03P3S5","05P3S1",
                     "12P3S4","16P3S2","19P3S4","21P3S4")
-P.no.phage <- mut.PCoA$points[P.no.phage.list, ]
+#P.no.phage <- mut.PCoA$points[P.no.phage.list, ]
   
 P.plus.phage.list <- c("03P2S4","03P5S5","05P2S1","05P2S2","05P4S4","12P2S5",
                        "12P4S2","16P5S2","19P5S2","21P2S4","21P4S2","21P5S1")
@@ -128,16 +154,16 @@ P.plus.phage <- mut.PCoA$points[P.plus.phage.list, ]
 # Add points
 
 # N.no.phage
-points(N.no.phage[ ,1], N.no.phage[ ,2], pch = 21,
-       cex = 2, col = "blue", bg = "white", lwd = 2)
+#points(N.no.phage[ ,1], N.no.phage[ ,2], pch = 21,
+#       cex = 2, col = "blue", bg = "white", lwd = 2)
 
 # N.plus.phage
 points(N.plus.phage[ ,1], N.plus.phage[ ,2], pch = 21,
        cex = 2, col = "blue", bg = "lightblue", lwd = 2)
 
 # P.no.phage
-points(P.no.phage[ ,1], P.no.phage[ ,2], pch = 21,
-       cex = 2, col = "red", bg = "white", lwd = 2)
+#points(P.no.phage[ ,1], P.no.phage[ ,2], pch = 21,
+#       cex = 2, col = "red", bg = "white", lwd = 2)
 
 # P.plus.phage
 points(P.plus.phage[ ,1], P.plus.phage[ ,2], pch = 21,
