@@ -1,0 +1,23 @@
+# commands to make R parsable mutation data
+# using gdtools from breseq
+# https://barricklab.org/twiki/pub/Lab/ToolsBacterialGenomeResequencing/documentation/gd_usage.html
+# executed on carbonate, 30/Dec/2020 by Daniel Schwartz
+
+#load breseq
+module load breseq
+	Curl version 7.54.0 loaded.
+	Sun/Oracle Java SE Development Kit version 11.0.2 loaded.
+	R version 3.6.0 loaded
+	bowtie2 version 2.4.2 loaded.
+	breseq version 0.32.0 loaded.
+
+#change to breseq results directory
+cd ~/GitHub/genetic-dets/breseq/
+
+#gdtools command
+	# gdtools ANNOTATE [-o annotated.html] -r reference.gbk input.1.gd [input.2.gd ... ]
+# made a copy of reference gff to match name in .gd file headers (ancestor.gff)
+
+gdtools ANNOTATE -o genome-diff.tsv -f TSV -r ancestor.gff genome_diff/*.gd
+
+
