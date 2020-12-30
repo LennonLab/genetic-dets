@@ -1,0 +1,9 @@
+file,sample,total,base_substitution,small_indel,large_deletion,large_insertion,large_amplification,large_substitution,mobile_element_insertion,gene_conversion,inversion,called_bp,total_bp,base_substitution.synonymous,base_substitution.nonsynonymous,base_substitution.nonsense,base_substitution.noncoding,base_substitution.pseudogene,base_substitution.intergenic
+N1_unique.gd,N1_unique,58,45,13,0,0,0,0,0,0,0,2366975,2366975,3,5,0,37,0,0
+N2_unique.gd,N2_unique,143,99,44,0,0,0,0,0,0,0,2366975,2366975,3,12,0,82,0,2
+N3_unique.gd,N3_unique,173,120,53,0,0,0,0,0,0,0,2366975,2366975,4,9,2,103,0,2
+N5_unique.gd,N5_unique,123,86,37,0,0,0,0,0,0,0,2366975,2366975,4,7,2,71,0,2
+P2_unique.gd,P2_unique,210,149,61,0,0,0,0,0,0,0,2366975,2366975,19,14,0,116,0,0
+P3_unique.gd,P3_unique,137,96,41,0,0,0,0,0,0,0,2366975,2366975,4,20,0,71,0,1
+P4_unique.gd,P4_unique,197,134,63,0,0,0,0,0,0,0,2366975,2366975,25,10,0,98,0,1
+P5_unique.gd,P5_unique,155,107,48,0,0,0,0,0,0,0,2366975,2366975,5,9,0,93,0,0
