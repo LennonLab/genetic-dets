@@ -1,0 +1,108 @@
+---
+title: "Stoichiogenomics"
+author: "Jay T. Lennon and Daniel Schwartz"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+header-includes:
+  - \usepackage{array}
+output: pdf_document
+geometry: margin=2.54cm
+---
+
+# Set working environment and load packages
+
+```{r setup, message = FALSE, warning = FALSE}
+# Clear and set working directory 
+rm(list = ls())
+setwd("~/GitHub/stoichiogenomics")
+require("dplyr")
+require("tibble")
+```
+
+# Load data: Schwartz compiled
+
+```{r}
+data <- read.csv("~/GitHub/stoichiogenomics/breseq/unified/count-diff.csv", header = TRUE)
+nut.treat <- c("N", "N", "N", "N", "P", "P", "P", "P")
+phage.treat <- c("minus", "plus", "plus", "plus", "minus", "plus", "plus", "plus")
+data <- data.frame(nut.treat, phage.treat, data[,c(3:5, 15, 16)])
+colnames(data) <- c("nut.lim", "phage", "total", "base.sub", "s.indel", "mut.syn", "mut.non.syn")
+```
+
+# Contigency analyses: Schwartz compiled
+
+```{r}
+mut <- data %>% 
+  group_by(nut.lim, phage) %>% 
+  summarise(base.sub = sum(base.sub)) 
+mut.mat <- matrix(mut$base.sub, ncol = 2, byrow = F)
+colnames(mut.mat) <- c("N","P")
+rownames(mut.mat) <- c("minus", "plus")
+mut.tab <- as.table(mut.mat)
+mut.tab.margins <- addmargins(mut.tab)
+mut.chi <- chisq.test(mut.tab)
+
+# p-value = 0.33: non-synonymous (recheck)
+# p-value = 2.993e-09: total unique
+
+# Posthoc analysis
+mut.z <- as.data.frame(mut.chi$stdres)
+mut.x2 <- mut.z$Freq^2
+mut.p <- pchisq(mut.x2, df = 1, lower.tail = FALSE)
+mut.p.adj <- p.adjust(mut.p, method = "BH")
+mut.post.hoc <- data.frame(mut.z, mut.x2, mut.p, mut.p.adj)
+colnames(mut.post.hoc) <- c("phage", "nut.lim", "z", "chi2", "p", "p.adj")
+
+# Non-synonymous
+#  phage nut.lim         z     chi2         p     p.adj
+#1 minus       N -1.224352 1.499038 0.2208194 0.2208194
+#2  plus       N  1.224352 1.499038 0.2208194 0.2208194
+#3 minus       P  1.224352 1.499038 0.2208194 0.2208194
+#4  plus       P -1.224352 1.499038 0.2208194 0.2208194
+
+# Base substitutions
+#1 minus       N -6.015039 36.1807 1.79843e-09 1.79843e-09
+#2  plus       N  6.015039 36.1807 1.79843e-09 1.79843e-09
+#3 minus       P  6.015039 36.1807 1.79843e-09 1.79843e-09
+#4  plus       P -6.015039 36.1807 1.79843e-09 1.79843e-09
+```
+
+# Load data: Larsen compiled
+
+```{r}
+data2 <- read.csv("~/GitHub/stoichiogenomics/breseq/unified/larsen.csv", sep = ",", header = TRUE)
+colnames(data2) <- c("nut.lim", "phage", "num.iso", "total.muts", "total.unique", "mut.syn", "mut.non.syn")
+```
+
+# Non-synonymous mutations: Larsen compiled
+
+```{r}
+mut2 <- data2 %>% 
+  group_by(nut.lim, phage) %>% 
+  summarise(mut.non.syn = sum(mut.non.syn)) 
+mut2.mat <- matrix(mut2$mut.non.syn, ncol = 2, byrow = F)
+colnames(mut2.mat) <- c("N","P")
+rownames(mut2.mat) <- c("minus", "plus")
+mut2.tab <- as.table(mut2.mat)
+mut2.tab.margins <- addmargins(mut2.tab)
+mut2.chi <- chisq.test(mut2.tab)
+# p-value = 0.0894: non-synonymous
+# p-value = 0.006043: total unique
+mut2.fish <- fisher.test(mut2.tab)
+# p-value = 0.07035: non-synonymous
+# p-value = 0.004833: total unique
+
+# Posthoc analysis
+mut2.z <- as.data.frame(mut2.chi$stdres)
+mut2.x2 <- mut2.z$Freq^2
+mut2.p <- pchisq(mut2.x2, df = 1, lower.tail = FALSE)
+mut2.p.adj <- p.adjust(mut2.p, method = "BH")
+mut2.post.hoc <- data.frame(mut2.z, mut2.x2, mut2.p, mut2.p.adj)
+colnames(mut2.post.hoc) <- c("phage", "nut.lim", "z", "chi2", "p", "p.adj")
+
+# Non-synonymous mutations
+#  phage nut.lim         z     chi2          p      p.adj
+#1 minus       N  2.056155 4.227772 0.03976761 0.03976761
+#2  plus       N -2.056155 4.227772 0.03976761 0.03976761
+#3 minus       P -2.056155 4.227772 0.03976761 0.03976761
+#4  plus       P  2.056155 4.227772 0.03976761 0.03976761
+```
