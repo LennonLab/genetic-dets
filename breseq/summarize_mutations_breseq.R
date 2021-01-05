@@ -16,8 +16,19 @@ f <- list.files("~/GitHub/stoichiogenomics/breseq/genome_diff/", full.names = T)
 strains <- read_csv("~/GitHub/stoichiogenomics/data/strains.csv")%>%
   filter(trt!="A") #remove ansector
 
-# vector of chemostats
-cstat <- unique(strains$cID)
+# organize folders to place gd files
+    
+    # recode phage trt to remove special characters
+    strains <- strains%>%
+      mutate(phage=if_else(str_detect(trt,"\\+"),"wPhage", "noPhage"))
+    
+    # make folder names
+    strains <- strains%>%
+      mutate(folder=paste(cID,phage,sep = "_"))
+
+
+    # vector of chemostats (separated into phage trt)
+    cstat <- unique(strains$folder)
 
 #make folder for each chemostat
 dir.create("~/GitHub/stoichiogenomics/breseq/diff_by_cID")
