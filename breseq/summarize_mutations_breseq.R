@@ -10,20 +10,20 @@ library(tidyverse)
 ###########################################
 
 # list .gd files
-f <- list.files("~/GitHub/genetic-dets/breseq/genome_diff/", full.names = T)
+f <- list.files("~/GitHub/stoichiogenomics/breseq/genome_diff/", full.names = T)
 
 # data of chemostat
-strains <- read_csv("~/GitHub/genetic-dets/data/strains.csv")%>%
+strains <- read_csv("~/GitHub/stoichiogenomics/data/strains.csv")%>%
   filter(trt!="A") #remove ansector
 
 # vector of chemostats
 cstat <- unique(strains$cID)
 
 #make folder for each chemostat
-dir.create("~/GitHub/genetic-dets/breseq/diff_by_cID")
+dir.create("~/GitHub/stoichiogenomics/breseq/diff_by_cID")
 
 #copy files into proper folder
-setwd("~/GitHub/genetic-dets/breseq/diff_by_cID/")
+setwd("~/GitHub/stoichiogenomics/breseq/diff_by_cID/")
 
 for(i in cstat) dir.create(i)
 c.folders <- list.dirs(full.names = T)[-1] #remove ./
