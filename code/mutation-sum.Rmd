@@ -1,0 +1,55 @@
+---
+title: "Stoichiogenomics"
+author: "Jay T. Lennon and Daniel Schwartz"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+header-includes:
+  - \usepackage{array}
+output: pdf_document
+geometry: margin=2.54cm
+---
+
+# Set working environment and load packages
+
+```{r setup, message = FALSE, warning = FALSE}
+# Clear and set working directory 
+rm(list = ls())
+library(tidyverse)
+library(here)
+
+setwd(here())
+```
+
+------
+# summarize mutations with breseq  
+Following commands were run on carbonate
+
+$ module load breseq
+  # Curl version 7.54.0 loaded.
+  # Sun/Oracle Java SE Development Kit version 11.0.2 loaded.
+  # R version 3.6.0 loaded
+  # bowtie2 version 2.4.2 loaded.
+  # breseq version 0.32.0 loaded.
+
+$ cd ~/GitHub/genetic-dets/breseq
+
+$ gdtools COMPARE -o compare-all.tsv -f TSV -r syn-ancestor.gff genome_diff/*.gd
+-------
+
+# import gd compare table
+
+```{r}
+d.compare <- read_tsv(here("breseq/compare-all.tsv"))
+
+# select important columns
+d <- d.compare %>%
+  select(position, type, mutation_category, strain=title)
+
+# convert to wide firmat
+d.wide <- d %>%
+  #presence column
+  mutate(presence=1)%>%
+  pivot_wider(names_from = strain, values_from=presence, values_fill=0)
+  
+# need to find a way to filter the relavent mutations
+```
+
