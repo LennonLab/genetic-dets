@@ -1,0 +1,111 @@
+---
+title: "Stoichiogenomics"
+author: "Jay T. Lennon and Daniel Schwartz"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+header-includes:
+  - \usepackage{array}
+output: pdf_document
+geometry: margin=2.54cm
+---
+
+# Set working environment and load packages
+
+```{r setup, message = FALSE, warning = FALSE}
+# Clear and set working directory 
+rm(list = ls())
+library(tidyverse)
+library(here)
+library(cowplot)
+setwd(here())
+```
+
+------
+# summarize mutations with breseq  
+Following commands were run on carbonate
+
+$ module load breseq
+  # Curl version 7.54.0 loaded.
+  # Sun/Oracle Java SE Development Kit version 11.0.2 loaded.
+  # R version 3.6.0 loaded
+  # bowtie2 version 2.4.2 loaded.
+  # breseq version 0.32.0 loaded.
+
+$ cd ~/GitHub/genetic-dets/breseq
+
+$ gdtools COMPARE -o compare-all.tsv -f TSV -r syn-ancestor.gff genome_diff/*.gd
+-------
+
+# import gd compare table
+
+```{r, message=FALSE}
+d.compare <- read_tsv(here("breseq/compare-all.tsv"))
+
+# select important columns
+d <- d.compare %>%
+  select(position, type, mutation_category, strain=title)
+
+# convert to wide firmat
+d.wide <- d %>%
+  #presence column
+  mutate(presence=1)%>%
+  pivot_wider(names_from = strain, values_from=presence, values_fill=0)
+  
+head(d.wide[,1:8])
+
+```
+
+We need to find a way to filter the relavent mutations. 
+
+```{r}
+#visualize
+d %>%
+  ggplot(aes(y=fct_rev(strain), x=position))+
+    geom_jitter(aes(fill=type), shape=21, height = 0.2,width = 5000)+
+  theme_bw()
+```
+
+There are several positions with mutations in nearly all strains. In two of these loci (positions ~500K and ~ 2M) there are multiple mutations per strain. The 500K locus and the right modt locus have a similar pattern, they disappear in all strains sequenced from day 21, irespective of chemostat and treatment.
+
+```{r}
+#visualize 500k
+p1 <- 
+d %>%
+  filter(position>5.3e5)%>%
+  filter(position<5.4e5)%>%
+  ggplot(aes(y=fct_rev(strain), x=position))+
+    geom_jitter(aes(fill=type), shape=21, height = 0.3,width = 50)+
+  theme_bw()+
+  theme(legend.position = "bottom")
+
+#visualize 2M
+p2 <- 
+d %>%
+  filter(position>2.01e6)%>%
+  filter(position<2.03e6)%>%
+  ggplot(aes(y=fct_rev(strain), x=position))+
+    geom_jitter(aes(fill=type), shape=21, height = 0.3,width = 50)+
+  theme_bw()+
+  theme(legend.position = "bottom")
+
+plot_grid(p1,p2)
+```
+
+Summarize mutations by gene
+
+```{r}
+d.gene <- d.compare%>%
+  select(gene_product, strain=title)%>%
+  group_by(gene_product, strain)%>%
+  summarise(n=n(), .groups="drop")%>%
+  arrange(desc(n))
+
+#visualize
+d.gene %>%
+  mutate(gene_product = str_trunc(gene_product,30)%>%fct_infreq()%>%fct_rev())%>%
+  ggplot(aes(x=strain, y=gene_product))+
+  geom_tile(aes(fill=n))+
+  theme_bw()+
+  theme(axis.text.x = element_text(angle=90, hjust=1, vjust = 0.5))
+
+```
+
