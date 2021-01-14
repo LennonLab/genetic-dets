@@ -109,3 +109,28 @@ d.gene %>%
 
 ```
 
+Filter by feeling
+```{r}
+
+d.compare%>%
+  select(gene_name, strain=title)%>%
+    group_by(gene_name, strain)%>%
+  summarise(n=n(), .groups="drop")%>%
+    group_by(gene_name)%>%
+   summarise(n=n(), .groups="drop")%>%
+  arrange(desc(n))
+
+
+d.compare%>%
+  filter(gene_name != "fur")%>%
+  filter(gene_name != "SynWH7803_0756")%>%
+  filter(gene_name != "SynWH7803_2402")%>%
+  filter(gene_name != "RNA_51")%>%
+  filter(gene_name != "RNA_16")%>%
+  group_by(position)%>%
+  summarise(n=n())%>%
+  arrange(desc(n))
+  
+  
+```
+
