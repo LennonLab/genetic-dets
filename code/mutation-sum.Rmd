@@ -73,7 +73,7 @@ d %>%
   filter(position>5.3e5)%>%
   filter(position<5.4e5)%>%
   ggplot(aes(y=fct_rev(strain), x=position))+
-    geom_jitter(aes(fill=type), shape=21, height = 0.2,width = 100)+
+    geom_jitter(aes(fill=type), shape=21, height = 0.3,width = 50)+
   theme_bw()+
   theme(legend.position = "bottom")
 
@@ -83,10 +83,29 @@ d %>%
   filter(position>2.01e6)%>%
   filter(position<2.03e6)%>%
   ggplot(aes(y=fct_rev(strain), x=position))+
-    geom_jitter(aes(fill=type), shape=21, height = 0.2,width = 100)+
+    geom_jitter(aes(fill=type), shape=21, height = 0.3,width = 50)+
   theme_bw()+
   theme(legend.position = "bottom")
 
 plot_grid(p1,p2)
+```
+
+Summarize mutations by gene
+
+```{r}
+d.gene <- d.compare%>%
+  select(gene_product, strain=title)%>%
+  group_by(gene_product, strain)%>%
+  summarise(n=n(), .groups="drop")%>%
+  arrange(desc(n))
+
+#visualize
+d.gene %>%
+  mutate(gene_product = str_trunc(gene_product,30)%>%fct_infreq()%>%fct_rev())%>%
+  ggplot(aes(x=strain, y=gene_product))+
+  geom_tile(aes(fill=n))+
+  theme_bw()+
+  theme(axis.text.x = element_text(angle=90, hjust=1, vjust = 0.5))
+
 ```
 
