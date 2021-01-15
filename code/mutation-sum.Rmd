@@ -94,15 +94,15 @@ Summarize mutations by gene
 
 ```{r}
 d.gene <- d.compare%>%
-  select(gene_product, strain=title)%>%
-  group_by(gene_product, strain)%>%
+  select(gene_name, strain=title)%>%
+  group_by(gene_name, strain)%>%
   summarise(n=n(), .groups="drop")%>%
   arrange(desc(n))
 
 #visualize
 d.gene %>%
-  mutate(gene_product = str_trunc(gene_product,30)%>%fct_infreq()%>%fct_rev())%>%
-  ggplot(aes(x=strain, y=gene_product))+
+  mutate(gene_name = str_trunc(gene_name,30)%>%fct_infreq()%>%fct_rev())%>%
+  ggplot(aes(x=strain, y=gene_name))+
   geom_tile(aes(fill=n))+
   theme_bw()+
   theme(axis.text.x = element_text(angle=90, hjust=1, vjust = 0.5))
@@ -120,17 +120,61 @@ d.compare%>%
    summarise(n=n(), .groups="drop")%>%
   arrange(desc(n))
 
-
+d.compare%>%
+  group_by(position)%>%
+  summarise(n=n(),.groups="drop")%>%
+  arrange(desc(n))%>%
+  summarise(n=n())
+          
 d.compare%>%
   filter(gene_name != "fur")%>%
   filter(gene_name != "SynWH7803_0756")%>%
   filter(gene_name != "SynWH7803_2402")%>%
   filter(gene_name != "RNA_51")%>%
   filter(gene_name != "RNA_16")%>%
+  filter(gene_name != "RNA_48")%>%
+  filter(gene_name != "RNA_19")%>%
+  filter(gene_name != "SynWH7803_2512")%>%
+  filter(gene_name != "SynWH7803_2356")%>%
+  filter(gene_name != "psbA")%>%
   group_by(position)%>%
-  summarise(n=n())%>%
-  arrange(desc(n))
+  summarise(n=n(),.groups="drop")%>%
+  arrange(desc(n))%>%
+  summarise(n=n())
   
+  d.filt <- 
+    d.compare%>%
+  filter(gene_name != "fur")%>%
+  filter(gene_name != "SynWH7803_0756")%>%
+  filter(gene_name != "SynWH7803_2402")%>%
+  filter(gene_name != "RNA_51")%>%
+  filter(gene_name != "RNA_16")%>%
+  filter(gene_name != "RNA_48")%>%
+  filter(gene_name != "RNA_19")%>%
+  filter(gene_name != "SynWH7803_2512")
+  # filter(gene_name != "SynWH7803_2356")
+  # filter(gene_name != "psbA")
   
+d.filt%>%
+    select(gene_name, strain=title)%>%
+  group_by(gene_name, strain)%>%
+  summarise(n=n(), .groups="drop")%>%
+  arrange(desc(n))%>%
+  mutate(gene_name = str_trunc(gene_name,30)%>%fct_infreq()%>%fct_rev())%>%
+  ggplot(aes(x=strain, y=gene_name))+
+  geom_tile(aes(fill=n))+
+  theme_bw()+
+  theme(axis.text.x = element_text(angle=90, hjust=1, vjust = 0.5))
 ```
+
+
+```{r}
+d.filt%>%
+  select(position, type, mutation_category, strain=title)%>%
+  ggplot(aes(y=fct_rev(strain), x=position))+
+    geom_jitter(aes(fill=type), shape=21, height = 0.2,width = 5000)+
+  theme_bw()
+
+```
+
 
