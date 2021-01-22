@@ -150,8 +150,7 @@ d.write <- left_join(d.compare, sum.gene)%>%
   mutate(cID=str_extract(strain_ID, "N.|P."))%>%
   mutate(clone=str_extract(strain_ID, "S."))
 
-
-
+write_csv(d.write, here("data/mutPositions_wPrevalence.csv"))
 ```
 
 ---------------
