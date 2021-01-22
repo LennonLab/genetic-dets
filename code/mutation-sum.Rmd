@@ -90,22 +90,120 @@ d %>%
 plot_grid(p1,p2)
 ```
 
-Summarize mutations by gene
+Summarize mutations by gene for filtering
 
 ```{r}
 d.gene <- d.compare%>%
-  select(gene_product, strain=title)%>%
-  group_by(gene_product, strain)%>%
+  select(gene_name, strain=title)%>%
+  group_by(gene_name, strain)%>%
   summarise(n=n(), .groups="drop")%>%
   arrange(desc(n))
 
 #visualize
 d.gene %>%
-  mutate(gene_product = str_trunc(gene_product,30)%>%fct_infreq()%>%fct_rev())%>%
-  ggplot(aes(x=strain, y=gene_product))+
+  # mutate(gene_product = str_trunc(gene_product,30)%>%fct_infreq()%>%fct_rev())%>%
+  mutate(gene_name =fct_infreq(gene_name)%>%fct_rev())%>%
+  ggplot(aes(x=strain, y=gene_name))+
   geom_tile(aes(fill=n))+
   theme_bw()+
   theme(axis.text.x = element_text(angle=90, hjust=1, vjust = 0.5))
 
 ```
+
+Visulaize filtering at different levels of mutation prevalence within the strain collection.
+
+```{r}
+#list of plots
+l.plot <- list()
+
+# try several cutoffs
+n.max <- c(1,0.8,0.6,0.4, 0.2)
+
+
+for (i in n.max){
+  #filter based on cutoff
+  filt.out <- sum.gene %>%
+  filter(avg.mut.n>i) %>%
+  pull(gene_name)%>%
+  unique()
+
+  l.plot[[as.character(i)]] <- d.compare %>%
+    filter(! gene_name %in% filt.out) %>%
+  select(position, type, mutation_category, strain=title) %>%
+    #plot
+  ggplot(aes(y=fct_rev(strain), x=position))+
+    geom_jitter(aes(fill=type), shape=21, height = 0.2,width = 5000)+
+  theme_bw()+
+  expand_limits(x=c(0, max(d.compare$position)))
+}
+
+
+plot_grid(plotlist = l.plot, nrow =5, labels = n.max, label_colour = "red", label_x = .1)
+```
+
+export data for contingency analysis
+```{r}
+d.write <- left_join(d.compare, sum.gene)%>%
+  select(strain_ID =title, position, snp_type, type, prevalence=avg.mut.n)%>%
+  # add metadata
+  mutate(Time=str_extract(strain_ID, "^..")%>%parse_integer())%>%
+  mutate(cID=str_extract(strain_ID, "N.|P."))%>%
+  mutate(clone=str_extract(strain_ID, "S."))
+
+write_csv(d.write, here("data/mutPositions_wPrevalence.csv"))
+```
+
+---------------
+Summarize mutations by position for filtering
+
+```{r}
+d.pos <- d.compare%>%
+  select(position, strain=title)%>%
+  group_by(position, strain)%>%
+  summarise(n=n(), .groups="drop")%>%
+  arrange(desc(n))
+
+#visualize
+d.pos %>%
+  # mutate(gene_product = str_trunc(gene_product,30)%>%fct_infreq()%>%fct_rev())%>%
+  mutate(position =as_factor(position)%>%fct_infreq()%>%fct_rev())%>%
+  ggplot(aes(x=strain, y=position))+
+  geom_tile()+
+  theme_bw()+
+  theme(axis.text.x = element_text(angle=90, hjust=1, vjust = 0.5))
+
+```
+
+Visulaize filtering at different levels of mutation prevalence within the strain collection.
+
+```{r}
+#list of plots
+l.plot <- list()
+
+# try several cutoffs
+n.max <- c(1,0.8,0.6,0.4, 0.2)
+
+
+for (i in n.max){
+  #filter based on cutoff
+  filt.out <- sum.pos %>%
+  filter(avg.mut.n>i) %>%
+  pull(position)%>%
+  unique()
+
+  l.plot[[as.character(i)]] <- d.compare %>%
+    filter(! position %in% filt.out) %>%
+  select(position, type, mutation_category, strain=title) %>%
+    #plot
+  ggplot(aes(y=fct_rev(strain), x=position))+
+    geom_jitter(aes(fill=type), shape=21, height = 0.2,width = 5000)+
+  theme_bw()+
+  expand_limits(x=c(0, max(d.compare$position)))
+}
+
+
+plot_grid(plotlist = l.plot, nrow =5, labels = n.max, label_colour = "red", label_x = .1)
+
+```
+
 
