@@ -144,7 +144,7 @@ plot_grid(plotlist = l.plot, nrow =5, labels = n.max, label_colour = "red", labe
 export data for contingency analysis
 ```{r}
 d.write <- left_join(d.compare, sum.gene)%>%
-  select(strain_ID =title, position, snp_type, type, prevalence=avg.mut.n)%>%
+  select(strain_ID =title, gene=locus_tag, gene_name, position, snp_type, type, prevalence=avg.mut.n)%>%
   # add metadata
   mutate(Time=str_extract(strain_ID, "^..")%>%parse_integer())%>%
   mutate(cID=str_extract(strain_ID, "N.|P."))%>%
