@@ -35,36 +35,40 @@ $ cd ~/GitHub/genetic-dets/breseq
 $ gdtools COMPARE -o compare-all.tsv -f TSV -r syn-ancestor.gff genome_diff/*.gd
 -------
 
-# import gd compare table
+# Import gd compare table
 
 ```{r, message=FALSE}
-d.compare <- read_tsv(here("breseq/compare-all.tsv"))
+setwd("~/GitHub/stoichiogenomics/")
+#d.compare <- read_tsv(here("breseq/compare-all.tsv"))
+d.compare <- read.table(file = "breseq/compare-all.tsv", sep = '\t', header = TRUE)
 
 # select important columns
 d <- d.compare %>%
-  select(position, type, mutation_category, strain=title)
+  select(position, type, mutation_category, strain = title)
 
-# convert to wide firmat
+# convert to wide format
 d.wide <- d %>%
   #presence column
   mutate(presence=1)%>%
-  pivot_wider(names_from = strain, values_from=presence, values_fill=0)
+  pivot_wider(names_from = strain, values_from = presence, values_fill = 0)
   
 head(d.wide[,1:8])
-
 ```
 
-We need to find a way to filter the relavent mutations. 
+# Filter relevant mutations
 
 ```{r}
-#visualize
+# visualize mutations 
 d %>%
-  ggplot(aes(y=fct_rev(strain), x=position))+
-    geom_jitter(aes(fill=type), shape=21, height = 0.2,width = 5000)+
+  ggplot(aes(y = fct_rev(strain), x = position))+
+    geom_jitter(aes(fill = type), shape = 21, height = 0.2, width = 5000)+
   theme_bw()
 ```
 
-There are several positions with mutations in nearly all strains. In two of these loci (positions ~500K and ~ 2M) there are multiple mutations per strain. The 500K locus and the right modt locus have a similar pattern, they disappear in all strains sequenced from day 21, irespective of chemostat and treatment.
+There are several positions with mutations in nearly all strains. 
+In two of these loci (positions ~500K and ~ 2M) there are multiple mutations per strain. 
+The 500K locus and the right most locus have a similar pattern: 
+they disappear in all strains sequenced from day 21, irrespective of chemostat and treatment.
 
 ```{r}
 #visualize 500k
@@ -90,7 +94,7 @@ d %>%
 plot_grid(p1,p2)
 ```
 
-Summarize mutations by gene for filtering
+# Summarize mutations by gene for filtering
 
 ```{r}
 d.gene <- d.compare%>%
@@ -99,26 +103,24 @@ d.gene <- d.compare%>%
   summarise(n=n(), .groups="drop")%>%
   arrange(desc(n))
 
-#visualize
+# visualize
 d.gene %>%
   # mutate(gene_product = str_trunc(gene_product,30)%>%fct_infreq()%>%fct_rev())%>%
-  mutate(gene_name =fct_infreq(gene_name)%>%fct_rev())%>%
-  ggplot(aes(x=strain, y=gene_name))+
-  geom_tile(aes(fill=n))+
+  mutate(gene_name = fct_infreq(gene_name)%>%fct_rev())%>%
+  ggplot(aes(x = strain, y = gene_name))+
+  geom_tile(aes(fill = n))+
   theme_bw()+
-  theme(axis.text.x = element_text(angle=90, hjust=1, vjust = 0.5))
-
+  theme(axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5))
 ```
 
-Visulaize filtering at different levels of mutation prevalence within the strain collection.
+# Visulaize filtering at different levels of mutation prevalence within strain collection
 
 ```{r}
-#list of plots
+# list of plots
 l.plot <- list()
 
 # try several cutoffs
-n.max <- c(1,0.8,0.6,0.4, 0.2)
-
+n.max <- c(1, 0.8, 0.6, 0.4, 0.2)
 
 for (i in n.max){
   #filter based on cutoff
@@ -132,49 +134,50 @@ for (i in n.max){
   select(position, type, mutation_category, strain=title) %>%
     #plot
   ggplot(aes(y=fct_rev(strain), x=position))+
-    geom_jitter(aes(fill=type), shape=21, height = 0.2,width = 5000)+
+    geom_jitter(aes(fill = type), shape = 21, height = 0.2, width = 5000)+
   theme_bw()+
-  expand_limits(x=c(0, max(d.compare$position)))
+  expand_limits(x = c(0, max(d.compare$position)))
 }
 
-
-plot_grid(plotlist = l.plot, nrow =5, labels = n.max, label_colour = "red", label_x = .1)
+plot_grid(plotlist = l.plot, nrow = 5, labels = n.max, label_colour = "red", label_x = 0.1)
 ```
 
-export data for contingency analysis
+# Export data for contingency analysis
+
 ```{r}
-d.write <- left_join(d.compare, sum.gene)%>%
-  select(strain_ID =title, gene=locus_tag, gene_name, position, snp_type, type, prevalence=avg.mut.n)%>%
+d.write <- left_join(d.compare, sum.gene) %>%
+  select(strain_ID = title, gene=locus_tag, gene_name, position, snp_type, 
+         type, prevalence = avg.mut.n) %>%
   # add metadata
-  mutate(Time=str_extract(strain_ID, "^..")%>%parse_integer())%>%
-  mutate(cID=str_extract(strain_ID, "N.|P."))%>%
+  mutate(Time = str_extract(strain_ID, "^..") %>% parse_integer()) %>%
+  mutate(cID=str_extract(strain_ID, "N.|P.")) %>%
   mutate(clone=str_extract(strain_ID, "S."))
 
 write_csv(d.write, here("data/mutPositions_wPrevalence.csv"))
 ```
 
----------------
+(# what is purpose of dashed line on following line??) 
+--------------- 
 Summarize mutations by position for filtering
 
 ```{r}
-d.pos <- d.compare%>%
-  select(position, strain=title)%>%
-  group_by(position, strain)%>%
-  summarise(n=n(), .groups="drop")%>%
+d.pos <- d.compare %>%
+  select(position, strain=title) %>%
+  group_by(position, strain) %>%
+  summarise(n=n(), .groups="drop") %>%
   arrange(desc(n))
 
 #visualize
 d.pos %>%
   # mutate(gene_product = str_trunc(gene_product,30)%>%fct_infreq()%>%fct_rev())%>%
-  mutate(position =as_factor(position)%>%fct_infreq()%>%fct_rev())%>%
+  mutate(position =as_factor(position) %>% fct_infreq() %>% fct_rev()) %>%
   ggplot(aes(x=strain, y=position))+
   geom_tile()+
   theme_bw()+
-  theme(axis.text.x = element_text(angle=90, hjust=1, vjust = 0.5))
-
+  theme(axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5))
 ```
 
-Visulaize filtering at different levels of mutation prevalence within the strain collection.
+# Visulaize filtering at different levels of mutation prevalence within the strain collection
 
 ```{r}
 #list of plots
@@ -182,7 +185,6 @@ l.plot <- list()
 
 # try several cutoffs
 n.max <- c(1,0.8,0.6,0.4, 0.2)
-
 
 for (i in n.max){
   #filter based on cutoff
@@ -202,8 +204,7 @@ for (i in n.max){
 }
 
 
-plot_grid(plotlist = l.plot, nrow =5, labels = n.max, label_colour = "red", label_x = .1)
-
+plot_grid(plotlist = l.plot, nrow = 5, labels = n.max, label_colour = "red", label_x = 0.1)
 ```
 
 
