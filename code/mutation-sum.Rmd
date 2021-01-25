@@ -116,6 +116,14 @@ d.gene %>%
 # Visulaize filtering at different levels of mutation prevalence within strain collection
 
 ```{r}
+# numer of sequenced strains
+n.strains <- d$strain %>% unique() %>% length()
+
+sum.gene <- d.gene %>%
+  group_by(gene_name)%>%
+  summarise(n=n(), avg.mut.n= n/n.strains, .groups="drop")
+  
+
 # list of plots
 l.plot <- list()
 
@@ -157,6 +165,7 @@ write_csv(d.write, here("data/mutPositions_wPrevalence.csv"))
 ```
 
 (# what is purpose of dashed line on following line??) 
+( Below is an alternative filteing scheme which I decided not to use but wanted to keep at hand)
 --------------- 
 Summarize mutations by position for filtering
 
@@ -180,6 +189,10 @@ d.pos %>%
 # Visulaize filtering at different levels of mutation prevalence within the strain collection
 
 ```{r}
+sum.pos <- d.pos %>%
+  group_by(position)%>%
+  summarise(n=n(), avg.mut.n= n/n.strains, .groups="drop")
+
 #list of plots
 l.plot <- list()
 
