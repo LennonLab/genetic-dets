@@ -13,19 +13,22 @@ geometry: margin=2.54cm
 ```{r setup, message = FALSE, warning = FALSE}
 # Clear and set working directory 
 rm(list = ls())
-setwd("~/GitHub/stoichiogenomics")
+library(here)
 require("dplyr")
 require("tibble")
+require("tidyr")
+require("readr")
+require("broom")
 ```
 
 # Load data: Schwartz compiled
 
 ```{r}
-data <- read.csv("~/GitHub/stoichiogenomics/breseq/unified/count-diff.csv", header = TRUE)
-nut.treat <- c("N", "N", "N", "N", "P", "P", "P", "P")
-phage.treat <- c("minus", "plus", "plus", "plus", "minus", "plus", "plus", "plus")
-data <- data.frame(nut.treat, phage.treat, data[,c(3:5, 15, 16)])
-colnames(data) <- c("nut.lim", "phage", "total", "base.sub", "s.indel", "mut.syn", "mut.non.syn")
+ data <- read.csv(here("breseq/unified/count-diff.csv"), header = TRUE)
+ nut.treat <- c("N", "N", "N", "N", "P", "P", "P", "P")
+ phage.treat <- c("minus", "plus", "plus", "plus", "minus", "plus", "plus", "plus")
+ data <- data.frame(nut.treat, phage.treat, data[,c(3:5, 15, 16)])
+ colnames(data) <- c("nut.lim", "phage", "total", "base.sub", "s.indel", "mut.syn", "mut.non.syn")
 ```
 
 # Contigency analyses: Schwartz compiled
@@ -64,6 +67,95 @@ colnames(mut.post.hoc) <- c("phage", "nut.lim", "z", "chi2", "p", "p.adj")
 #2  plus       N  6.015039 36.1807 1.79843e-09 1.79843e-09
 #3 minus       P  6.015039 36.1807 1.79843e-09 1.79843e-09
 #4  plus       P -6.015039 36.1807 1.79843e-09 1.79843e-09
+```
+
+
+# Load data: Schwartz compiled 2
+
+```{r}
+# mutation data
+mut.data <- read_csv(here("data/mutPositions_wPrevalence.csv"))
+
+# data of chemostat treament
+cstat.trt <- read_csv(here("data/cID_trt.csv"))
+
+# join treatment and muation data 
+mut.data <- left_join(mut.data, cstat.trt, by="cID")
+
+```
+
+# Summarize mutations and Contigency analyses: Schwartz compiled 2  
+```{r}
+# iterate over several filtering thresholds of mutation prevalence (0-1) and run chi.square test
+
+chisq.results <- tibble()
+
+for (prevalence.threshold in seq(0.1, 1, by = 0.1)){
+  
+  data2 <- mut.data%>%
+    filter(prevalence < prevalence.threshold) %>%
+    group_by(nut.lim, phage , cID, mutation_category) %>%
+    summarise(n = n())%>%
+    pivot_wider(values_from = n ,names_from = mutation_category, values_fill = 0)
+
+  data3 <- mut.data%>%
+    filter(prevalence < prevalence.threshold) %>%
+    group_by(nut.lim, phage , cID, mutation_type) %>%
+    summarise(n = n())%>%
+    pivot_wider(values_from = n ,names_from = mutation_type, values_fill = 0)
+  
+  mut <- data2 %>% 
+  group_by(nut.lim, phage) %>% 
+  summarise(base.sub = sum(snp_nonsynonymous) + sum(small_indel))
+
+  mut.mat <- pivot_wider(mut, names_from = nut.lim, values_from = base.sub)%>%
+    select(-phage)%>%
+    as.matrix()
+  
+  rownames(mut.mat) <- c("minus", "plus")
+  mut.tab <- as.table(mut.mat)
+  mut.tab.margins <- addmargins(mut.tab)
+  mut.chi <- chisq.test(mut.tab)
+  
+  #add results to table
+  muts <- t(as.vector(mut.mat)) %>% as.data.frame()
+  colnames(muts) <- c("N.minus", "N.plus", "P.minus", "P.plus")
+  
+  
+  chisq.results <- 
+    tibble(threshold = prevalence.threshold,
+         tidy(mut.chi),
+         muts) %>%
+    bind_rows(chisq.results, .)
+}
+
+# plot
+
+plot(x = chisq.results$threshold, y = -log10(chisq.results$p.value), type = 'b',
+       # xlab = "Threshold", ylab = "-log10(P-value)", main = "All SNPs")
+#        xlab = "Threshold", ylab = "-log10(P-value)", main = "Non-synonymous SNPs",
+# ylim = c(0,5))
+       xlab = "Threshold", ylab = "-log10(P-value)", main = "All SNPs + Small INDELs")
+
+abline(h = -log10(0.05), col = "red")
+abline(h = -log10(0.001), col = "red")
+
+text (x = 0.8, y= 1.8, labels = "P=0.05", col = "red")
+text (x = 0.8, y= 3.5, labels = "P=0.001", col = "red")
+
+
+```
+
+
+```{r}
+# # Posthoc analysis
+# mut.z <- as.data.frame(mut.chi$stdres)
+# mut.x2 <- mut.z$Freq^2
+# mut.p <- pchisq(mut.x2, df = 1, lower.tail = FALSE)
+# mut.p.adj <- p.adjust(mut.p, method = "BH")
+# mut.post.hoc <- data.frame(mut.z, mut.x2, mut.p, mut.p.adj)
+# colnames(mut.post.hoc) <- c("phage", "nut.lim", "z", "chi2", "p", "p.adj")
+
 ```
 
 # Load data: Larsen compiled
