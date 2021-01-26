@@ -106,7 +106,7 @@ for (prevalence.threshold in seq(0.1, 1, by = 0.1)){
   
   mut <- data2 %>% 
   group_by(nut.lim, phage) %>% 
-  summarise(base.sub = sum(snp_nonsynonymous))
+  summarise(base.sub = sum(snp_nonsynonymous) + sum(small_indel))
 
   mut.mat <- pivot_wider(mut, names_from = nut.lim, values_from = base.sub)%>%
     select(-phage)%>%
@@ -133,8 +133,9 @@ for (prevalence.threshold in seq(0.1, 1, by = 0.1)){
 
 plot(x = chisq.results$threshold, y = -log10(chisq.results$p.value), type = 'b',
        # xlab = "Threshold", ylab = "-log10(P-value)", main = "All SNPs")
-       xlab = "Threshold", ylab = "-log10(P-value)", main = "Non-synonymous SNPs",
-ylim = c(0,5))
+#        xlab = "Threshold", ylab = "-log10(P-value)", main = "Non-synonymous SNPs",
+# ylim = c(0,5))
+       xlab = "Threshold", ylab = "-log10(P-value)", main = "All SNPs + Small INDELs")
 
 abline(h = -log10(0.05), col = "red")
 abline(h = -log10(0.001), col = "red")
