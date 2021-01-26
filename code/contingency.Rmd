@@ -133,7 +133,7 @@ for (prevalence.threshold in seq(0.1, 1, by = 0.1)){
 
 plot(x = chisq.results$threshold, y = -log10(chisq.results$p.value), type = 'b',
        # xlab = "Threshold", ylab = "-log10(P-value)", main = "All SNPs")
-       xlab = "Threshold", ylab = "-log10(P-value)", main = "Non-synonomous SNPs",
+       xlab = "Threshold", ylab = "-log10(P-value)", main = "Non-synonymous SNPs",
 ylim = c(0,5))
 
 abline(h = -log10(0.05), col = "red")
