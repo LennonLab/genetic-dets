@@ -1,4 +1,6 @@
-## R ###
+########
+#  R   #
+########
 # History files
 .Rhistory
 .Rapp.history
@@ -12,3 +14,10 @@
 
 # RStudio files
 .Rproj.user/
+
+
+######################
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
